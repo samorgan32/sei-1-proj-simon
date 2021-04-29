@@ -1,0 +1,19 @@
+.grid {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: auto;
+justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+
+    align-items: center;
+    margin-top: 100%;
+    margin-bottom: 100%;
+
+}
+
+.grid-block {
+    background: grey;
+    height: 200px;
+    width: 200px;
+}
