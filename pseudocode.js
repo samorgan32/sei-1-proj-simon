@@ -81,15 +81,15 @@ function delay(i) {
 
 // Make blocks clickable. Need to remove the clicking in the gap and have it set to only the div if possible 
 
-gridBlock1.addEventListener('click', (event) => {
-    let block = event.target
-    userDelay(block)
-})
+// gridBlock1.addEventListener('click', (event) => {
+//     let block = event.target
+//     userDelay(block)
+// })
 
-gridBlock2.addEventListener('click', (event) => {
-    let block = event.target
-    userDelay(block)
-})
+// gridBlock2.addEventListener('click', (event) => {
+//     let block = event.target
+//     userDelay(block)
+// })
 
 //make blocks flash on user clicks
 function userDelay(block) {
@@ -98,6 +98,21 @@ function userDelay(block) {
 }
 
 //Store the user initiated sequence 
+// on end of initiate sequence, window needs to open for a user to input their sequence which can be stored in an array.  
+// 
+gridBlock1.addEventListener('click', (event) => {
+    let block = event.target
+    userDelay(block)
+    userSequence.push(event.target)
+    console.log(userSequence)
+})
+
+gridBlock2.addEventListener('click', (event) => {
+    let block = event.target
+    userDelay(block)
+    userSequence.push(event.target)
+    console.log(userSequence)
+})
 
 
 
