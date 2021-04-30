@@ -1,5 +1,5 @@
 
-// Make blocks clickable. Need to remove the clicking in the gap and have it set to only the div if possible  
+// Make blocks clickable. 
 const gridBlock1 = document.querySelector('.gb1')
 const gridBlock2 = document.querySelector('.gb2')
 const gridBlocks = document.querySelectorAll('.grid-block')
@@ -76,6 +76,8 @@ function initiateSequence() {
     }
 }
 
+
+
 //make the blocks flash 
 function delay(i) {
     sequence[i].style.background = 'white'
@@ -84,6 +86,13 @@ function delay(i) {
 
 
 // Make blocks clickable. Need to remove the clicking in the gap and have it set to only the div if possible 
+
+// gridBlocks.forEach(gridBlock => {
+//     gridBlock.addEventListener('click', (event) => {
+//         let block = event.target
+//         userDelay(block)
+//     })
+// });
 
 // gridBlock1.addEventListener('click', (event) => {
 //     let block = event.target
@@ -127,7 +136,15 @@ gridBlocks.forEach(gridBlock => {
     })
 });
 
+//clear the user sequence
+function clearUserSequence() {
+    for (let i = 0; i = userSequence.length; i++) {
+        userSequence.shift()
+    }
+}
 
+const clearSequenceButton = document.querySelector('#clear-sequence')
+clearSequenceButton.addEventListener('click', clearUserSequence)
 
 
 
