@@ -23,3 +23,11 @@ function revertBackground(event) {
 //generate random sequence
 //assign each block either 0 or 1, generate random 0 or 1, 
 
+const sequenceButton = document.querySelector('#new-game')
+
+sequenceButton.addEventListener('click', (event) => {
+    // console.log(event.target)
+    let num = Math.floor(Math.random() * 2)
+    console.log(num)
+
+})
