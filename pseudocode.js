@@ -61,12 +61,21 @@ generateButton.addEventListener('click', (event) => {
 //     }
 // })
 
-sequenceButton.addEventListener('click', (event) => {
+sequenceButton.addEventListener('click', initiateSequence)
+
+function initiateSequence() {
     sequence.forEach(function (e) {
         e.style.background = 'white'
         setTimeout(revertBackground, 120)
     })
-})
+}
 
+// function initiateSequence() {
+//     for (let i = 0; i < sequence.length; i++) {
+//         sequence[i].style.background = 'white'
+//         setTimeout(revertBackground, 120)
+//     }
+
+// }
 
 
