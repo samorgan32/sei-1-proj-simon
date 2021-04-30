@@ -2,6 +2,7 @@
 // Make blocks clickable. Need to remove the clicking in the gap and have it set to only the div if possible  
 const gridBlock1 = document.querySelector('.gb1')
 const gridBlock2 = document.querySelector('.gb2')
+const gridBlocks = document.querySelectorAll('.grid-block')
 const sequence = []
 const userSequence = []
 
@@ -21,6 +22,9 @@ function revertBackground(event) {
     gridBlock1.style.background = '#92d6c3'
     gridBlock2.style.background = '#92d6c3'
 }
+
+
+
 
 //generate random sequence
 //assign each block either 0 or 1, generate random 0 or 1, 
@@ -100,19 +104,29 @@ function userDelay(block) {
 //Store the user initiated sequence 
 // on end of initiate sequence, window needs to open for a user to input their sequence which can be stored in an array.  
 // 
-gridBlock1.addEventListener('click', (event) => {
-    let block = event.target
-    userDelay(block)
-    userSequence.push(event.target)
-    console.log(userSequence)
-})
+// gridBlock1.addEventListener('click', (event) => {
+//     let block = event.target
+//     userDelay(block)
+//     userSequence.push(event.target)
+//     console.log(userSequence)
+// })
 
-gridBlock2.addEventListener('click', (event) => {
-    let block = event.target
-    userDelay(block)
-    userSequence.push(event.target)
-    console.log(userSequence)
-})
+// gridBlock2.addEventListener('click', (event) => {
+//     let block = event.target
+//     userDelay(block)
+//     userSequence.push(event.target)
+//     console.log(userSequence)
+// })
+
+gridBlocks.forEach(gridBlock => {
+    gridBlock.addEventListener('click', (event) => {
+        let block = event.target
+        userDelay(block)
+        userSequence.push(event.target)
+        console.log(userSequence)
+    })
+});
+
 
 
 
