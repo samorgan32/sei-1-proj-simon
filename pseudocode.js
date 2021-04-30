@@ -73,17 +73,28 @@ sequenceButton.addEventListener('click', initiateSequence)
 // }
 
 
-let time = 120
+let time = 500
+let newTime = 0
+
+// function initiateSequence() {
+//     for (let i = 0; i < sequence.length; i++) {
+//         sequence[i].style.background = 'white'
+//         setTimeout(revertBackground, time)
+//         time + 100
+//     }
+
+// }
 
 function initiateSequence() {
     for (let i = 0; i < sequence.length; i++) {
-        sequence[i].style.background = 'white'
-        setTimeout(revertBackground, time)
-        time + 100
+        let newTime = i * 2000
+        x = setTimeout(function () { delay(i) }, newTime)
     }
-
 }
 
-
+function delay(i) {
+    sequence[i].style.background = 'white'
+    setTimeout(revertBackground, time)
+}
 
 
