@@ -54,18 +54,19 @@ generateButton.addEventListener('click', (event) => {
 //assign each a styling to hide or show the block
 //assign each block a set timeout to run on click 
 
+// sequenceButton.addEventListener('click', (event) => {
+//     for (let i = 0; i < sequence.length; i++) {
+//         sequence[i].style.background = 'white'
+//         setTimeout(revertBackground, 120)
+//     }
+// })
+
 sequenceButton.addEventListener('click', (event) => {
-    for (let i = 0; i < sequence.length; i++) {
-        sequence[i].style.background = 'white'
+    sequence.forEach(function (e) {
+        e.style.background = 'white'
         setTimeout(revertBackground, 120)
-    }
+    })
 })
 
-function intiateSequence() {
-    for (let i = 0; i < sequence.length; i++) {
-        sequence[i].style.background = 'white'
-        setTimeout(revertBackground, 120)
-    }
-    return
-}
+
 
