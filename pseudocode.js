@@ -80,7 +80,7 @@ function initiateSequence() {
 
 //make the blocks flash 
 function delay(i) {
-    sequence[i].style.background = 'white'
+    sequence[i].style.background = 'beige'
     setTimeout(revertBackground, time)
 }
 
@@ -106,7 +106,7 @@ function delay(i) {
 
 //make blocks flash on user clicks
 function userDelay(block) {
-    block.style.background = 'white'
+    block.style.background = 'beige'
     setTimeout(revertBackground, time)
 }
 
@@ -141,6 +141,7 @@ function clearUserSequence() {
     for (let i = 0; i = userSequence.length; i++) {
         userSequence.shift()
     }
+    console.log(userSequence)
 }
 
 const clearSequenceButton = document.querySelector('#clear-sequence')
