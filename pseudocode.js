@@ -152,17 +152,10 @@ clearSequenceButton.addEventListener('click', clearUserSequence)
 let winner = ''
 function compareSequences() {
     for (let i = 0; i < sequence.length; i++) {
-        if (sequence[i] === userSequence[i]) {
-            let winner = true
-        } else {
-            let winner = false
-        }
+        if (sequence[i] !== userSequence[i]) {
+            console.log('game over')
 
-    }
-    if (winner === true) {
-        console.log('you won')
-    } else {
-        console.log('you failed')
+        }
     }
 }
 
