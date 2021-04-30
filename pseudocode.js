@@ -3,17 +3,18 @@
 const gridBlock1 = document.querySelector('.gb1')
 const gridBlock2 = document.querySelector('.gb2')
 const sequence = []
+const userSequence = []
 
 
-gridBlock1.addEventListener('click', (event) => {
-    event.target.style.background = 'white'
-    setTimeout(revertBackground, 120)
-})
+// gridBlock1.addEventListener('click', (event) => {
+//     event.target.style.background = 'white'
+//     setTimeout(revertBackground, 120)
+// })
 
-gridBlock2.addEventListener('click', (event) => {
-    event.target.style.background = 'white'
-    setTimeout(revertBackground, 120)
-})
+// gridBlock2.addEventListener('click', (event) => {
+//     event.target.style.background = 'white'
+//     setTimeout(revertBackground, 120)
+// })
 
 // function to revert style back after click 
 function revertBackground(event) {
@@ -54,47 +55,50 @@ generateButton.addEventListener('click', (event) => {
 //assign each a styling to hide or show the block
 //assign each block a set timeout to run on click 
 
-// sequenceButton.addEventListener('click', (event) => {
-//     for (let i = 0; i < sequence.length; i++) {
-//         sequence[i].style.background = 'white'
-//         setTimeout(revertBackground, 120)
-//     }
-// })
 
+
+// button triggers the sequence 
 sequenceButton.addEventListener('click', initiateSequence)
 
-// function initiateSequence() {
-//     sequence.forEach(function (e) {
-//         let time = 120
-//         e.style.background = 'white'
-//         setTimeout(revertBackground, time)
-//         time + 100
-//     })
-// }
 
-
-let time = 500
+//trigger the computer generated sequence 
+let time = 300
 let newTime = 0
-
-// function initiateSequence() {
-//     for (let i = 0; i < sequence.length; i++) {
-//         sequence[i].style.background = 'white'
-//         setTimeout(revertBackground, time)
-//         time + 100
-//     }
-
-// }
 
 function initiateSequence() {
     for (let i = 0; i < sequence.length; i++) {
-        let newTime = i * 2000
+        let newTime = i * 1000
         x = setTimeout(function () { delay(i) }, newTime)
     }
 }
 
+//make the blocks flash 
 function delay(i) {
     sequence[i].style.background = 'white'
     setTimeout(revertBackground, time)
 }
+
+
+// Make blocks clickable. Need to remove the clicking in the gap and have it set to only the div if possible 
+
+gridBlock1.addEventListener('click', (event) => {
+    let block = event.target
+    userDelay(block)
+})
+
+gridBlock2.addEventListener('click', (event) => {
+    let block = event.target
+    userDelay(block)
+})
+
+//make blocks flash on user clicks
+function userDelay(block) {
+    block.style.background = 'white'
+    setTimeout(revertBackground, time)
+}
+
+//Store the user initiated sequence 
+
+
 
 
