@@ -215,6 +215,7 @@ const generateFlag = []
 //         console.log('advance')
 //     } else {
 //         console.log('game over')
+//         clearSequence()
 //     }
 //     console.log(comparisonSequence)
 //     setTimeout(clearComparisonSequence, 200)
@@ -222,13 +223,14 @@ const generateFlag = []
 //     console.log(generateFlag)
 // }
 
+
 function compareSequences() {
     for (let i = 0; i < sequence.length; i++) {
         if (sequence[i] === userSequence[i]) {
             comparisonSequence.push(sequence[i])
         }
     }
-    if (comparisonSequence.length === sequence.length) {
+    if (comparisonSequence.length === sequence.length && sequence.length === userSequence.length) {
         console.log('advance')
     } else {
         console.log('game over')
@@ -292,4 +294,5 @@ function clearGenerateFlag() {
     console.log(generateFlag)
 }
 
-//need to limit user from advancing on correct sequence plus extra
+//need to limit user from advancing on correct sequence plus extra.
+//generate flag is being pushed on game over  order of operations issue 
