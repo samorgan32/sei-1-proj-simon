@@ -29,8 +29,8 @@ body {
 }
 
 
-#new-game {
-
+#initiate {
+display: none;
 }
 
 button {

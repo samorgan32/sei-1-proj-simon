@@ -52,7 +52,7 @@ generateButton.addEventListener('click', (event) => {
         }
         console.log(sequence)
     }
-
+    initiateSequence()
 })
 
 //each click adds one random '0' or '1' to the array, increasing the array by one
@@ -156,8 +156,6 @@ function compareSequences() {
             // console.log('game over')
             comparisonSequence.push(sequence[i])
         }
-
-
     }
     if (comparisonSequence.length === sequence.length) {
         console.log('advance')
