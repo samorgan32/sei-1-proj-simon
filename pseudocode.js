@@ -60,8 +60,21 @@ const generateButton = document.querySelector('#generate')
 //     clearUserSequence()
 // })
 
-generateButton.addEventListener('click', generateSequence)
 
+//generates random sequence but also limits when a sequence can generate
+generateButton.addEventListener('click', (event) => {
+    if (sequence.length === 0) {
+        generateSequence()
+    } else if (sequence.length !== 0) {
+        if (generateFlag.length === sequence.length) {
+            generateSequence()
+        } else {
+            console.log('user plays first')
+        }
+    }
+})
+
+// generateButton.addEventListener('click', generateSequence)
 
 function generateSequence() {
     for (let i = 2; i < 3; i++) {
@@ -192,10 +205,26 @@ const generateFlag = []
 //     setTimeout(clearComparisonSequence, 200)
 // }
 
+// function compareSequences() {
+//     for (let i = 0; i < sequence.length; i++) {
+//         if (sequence[i] === userSequence[i]) {
+//             comparisonSequence.push(sequence[i])
+//         }
+//     }
+//     if (comparisonSequence.length === sequence.length) {
+//         console.log('advance')
+//     } else {
+//         console.log('game over')
+//     }
+//     console.log(comparisonSequence)
+//     setTimeout(clearComparisonSequence, 200)
+//     generateFlag.push('generate')
+//     console.log(generateFlag)
+// }
+
 function compareSequences() {
     for (let i = 0; i < sequence.length; i++) {
         if (sequence[i] === userSequence[i]) {
-            // console.log('game over')
             comparisonSequence.push(sequence[i])
         }
     }
@@ -203,12 +232,14 @@ function compareSequences() {
         console.log('advance')
     } else {
         console.log('game over')
+        clearSequence()
     }
     console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
     generateFlag.push('generate')
     console.log(generateFlag)
 }
+
 
 //clear comparisonSequence
 function clearComparisonSequence() {
@@ -230,6 +261,7 @@ function clearSequence() {
         sequence.shift()
     }
     console.log(sequence)
+    clearGenerateFlag()
 }
 
 newGameButton.addEventListener('click', clearSequence)
@@ -239,14 +271,25 @@ newGameButton.addEventListener('click', clearSequence)
 //generate needs to clear submit array or use array .length for check
 //if sequence is [] = generate can run
 // if (sequence.length === 0) {
-//     //run generate
+//     generateSequence()
 // } else if (sequence.length !== 0) {
 //     if (generateFlag.length === sequence.length) {
-//         //run generate function
+//         generateSequence()
 //     } else {
-//         // don't run generate function
+//         console.log('user plays first')
 //     }
+// }
 //if sequence ![] then check if submit array is [].
 //if submit array is empty, don't run generate.
 //if submit is populated, run generate and clear submitarray. 
 
+//game over needs to clear the submit sequence. Add to clearSequence()
+
+function clearGenerateFlag() {
+    for (let i = 0; i = generateFlag.length; i++) {
+        generateFlag.shift()
+    }
+    console.log(generateFlag)
+}
+
+//need to limit user from advancing on correct sequence plus extra
