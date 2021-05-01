@@ -176,7 +176,17 @@ function clearComparisonSequence() {
 }
 
 
-
-
 const submitButton = document.querySelector('#submit')
 submitButton.addEventListener('click', compareSequences)
+
+//new game button clears sequence array 
+const newGameButton = document.querySelector('#new-game')
+
+function clearSequence() {
+    for (let i = 0; i = sequence.length; i++) {
+        sequence.shift()
+    }
+    console.log(sequence)
+}
+
+newGameButton.addEventListener('click', clearSequence)
