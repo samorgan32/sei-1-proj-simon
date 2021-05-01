@@ -148,16 +148,28 @@ const clearSequenceButton = document.querySelector('#clear-sequence')
 clearSequenceButton.addEventListener('click', clearUserSequence)
 
 //compare the sequences 
+const comparisonSequence = []
 
-let winner = ''
 function compareSequences() {
     for (let i = 0; i < sequence.length; i++) {
-        if (sequence[i] !== userSequence[i]) {
-            console.log('game over')
-
+        if (sequence[i] === userSequence[i]) {
+            // console.log('game over')
+            comparisonSequence.push(sequence[i])
         }
+
+
     }
+    if (comparisonSequence.length === sequence.length) {
+        console.log('advance')
+    } else {
+        console.log('game over')
+    }
+    console.log(comparisonSequence)
 }
+
+
+
+
 
 
 const submitButton = document.querySelector('#submit')
