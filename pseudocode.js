@@ -154,6 +154,23 @@ clearSequenceButton.addEventListener('click', clearUserSequence)
 
 //compare the sequences 
 const comparisonSequence = []
+const generateFlag = []
+
+// function compareSequences() {
+//     for (let i = 0; i < sequence.length; i++) {
+//         if (sequence[i] === userSequence[i]) {
+//             // console.log('game over')
+//             comparisonSequence.push(sequence[i])
+//         }
+//     }
+//     if (comparisonSequence.length === sequence.length) {
+//         console.log('advance')
+//     } else {
+//         console.log('game over')
+//     }
+//     console.log(comparisonSequence)
+//     setTimeout(clearComparisonSequence, 200)
+// }
 
 function compareSequences() {
     for (let i = 0; i < sequence.length; i++) {
@@ -169,6 +186,8 @@ function compareSequences() {
     }
     console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
+    generateFlag.push('generate')
+    console.log(generateFlag)
 }
 
 //clear comparisonSequence
@@ -194,3 +213,13 @@ function clearSequence() {
 }
 
 newGameButton.addEventListener('click', clearSequence)
+
+// set limit on clicking generate unless user sequence has started
+// submit button pushes flag into array
+
+
+//if sequence is [] = generate can run
+//if sequence ![] then check if submit array is [].
+//if submit array is empty, don't run generate.
+//if submit is populated, run generate and clear submitarray. 
+
