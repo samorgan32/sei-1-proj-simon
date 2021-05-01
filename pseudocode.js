@@ -7,22 +7,6 @@ const sequence = []
 const userSequence = []
 
 
-// gridBlock1.addEventListener('click', (event) => {
-//     event.target.style.background = 'white'
-//     setTimeout(revertBackground, 120)
-// })
-
-// gridBlock2.addEventListener('click', (event) => {
-//     event.target.style.background = 'white'
-//     setTimeout(revertBackground, 120)
-// })
-
-// function to revert style back after click 
-// function revertBackground() {
-//     gridBlock1.style.background = '#92d6c3'
-//     gridBlock2.style.background = '#92d6c3'
-// }
-
 function revertBackground() {
     gridBlocks.forEach(gridBlock => {
         gridBlock.style.background = '#92d6c3'
@@ -35,30 +19,6 @@ function revertBackground() {
 
 const sequenceButton = document.querySelector('#initiate')
 const generateButton = document.querySelector('#generate')
-
-
-// sequenceButton.addEventListener('click', (event) => {
-//     for (let i = 2; i < 3; i++) {
-//         let num = Math.floor(Math.random() * 2)
-//         sequence.push(num)
-//     }
-//     console.log(sequence)
-// })
-
-
-// generateButton.addEventListener('click', (event) => {
-//     for (let i = 2; i < 3; i++) {
-//         let num = Math.floor(Math.random() * 2)
-//         if (num === 0) {
-//             sequence.push(gridBlock1)
-//         } else {
-//             sequence.push(gridBlock2)
-//         }
-//         console.log(sequence)
-//     }
-//     initiateSequence()
-//     clearUserSequence()
-// })
 
 
 //generates random sequence but also limits when a sequence can generate
@@ -124,24 +84,6 @@ function delay(i) {
 
 
 // Make blocks clickable. Need to remove the clicking in the gap and have it set to only the div if possible 
-
-// gridBlocks.forEach(gridBlock => {
-//     gridBlock.addEventListener('click', (event) => {
-//         let block = event.target
-//         userDelay(block)
-//     })
-// });
-
-// gridBlock1.addEventListener('click', (event) => {
-//     let block = event.target
-//     userDelay(block)
-// })
-
-// gridBlock2.addEventListener('click', (event) => {
-//     let block = event.target
-//     userDelay(block)
-// })
-
 //make blocks flash on user clicks
 function userDelay(block) {
     block.style.background = 'beige'
@@ -150,20 +92,6 @@ function userDelay(block) {
 
 //Store the user initiated sequence 
 // on end of initiate sequence, window needs to open for a user to input their sequence which can be stored in an array.  
-// 
-// gridBlock1.addEventListener('click', (event) => {
-//     let block = event.target
-//     userDelay(block)
-//     userSequence.push(event.target)
-//     console.log(userSequence)
-// })
-
-// gridBlock2.addEventListener('click', (event) => {
-//     let block = event.target
-//     userDelay(block)
-//     userSequence.push(event.target)
-//     console.log(userSequence)
-// })
 
 gridBlocks.forEach(gridBlock => {
     gridBlock.addEventListener('click', (event) => {
@@ -185,43 +113,9 @@ function clearUserSequence() {
 const clearSequenceButton = document.querySelector('#clear-sequence')
 clearSequenceButton.addEventListener('click', clearUserSequence)
 
-//compare the sequences 
+//compare the sequences
 const comparisonSequence = []
 const generateFlag = []
-
-// function compareSequences() {
-//     for (let i = 0; i < sequence.length; i++) {
-//         if (sequence[i] === userSequence[i]) {
-//             // console.log('game over')
-//             comparisonSequence.push(sequence[i])
-//         }
-//     }
-//     if (comparisonSequence.length === sequence.length) {
-//         console.log('advance')
-//     } else {
-//         console.log('game over')
-//     }
-//     console.log(comparisonSequence)
-//     setTimeout(clearComparisonSequence, 200)
-// }
-
-// function compareSequences() {
-//     for (let i = 0; i < sequence.length; i++) {
-//         if (sequence[i] === userSequence[i]) {
-//             comparisonSequence.push(sequence[i])
-//         }
-//     }
-//     if (comparisonSequence.length === sequence.length) {
-//         console.log('advance')
-//     } else {
-//         console.log('game over')
-//         clearSequence()
-//     }
-//     console.log(comparisonSequence)
-//     setTimeout(clearComparisonSequence, 200)
-//     generateFlag.push('generate')
-//     console.log(generateFlag)
-// }
 
 
 function compareSequences() {
@@ -232,14 +126,14 @@ function compareSequences() {
     }
     if (comparisonSequence.length === sequence.length && sequence.length === userSequence.length) {
         console.log('advance')
+        generateFlag.push('generate')
+        console.log(generateFlag)
     } else {
         console.log('game over')
         clearSequence()
     }
     console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
-    generateFlag.push('generate')
-    console.log(generateFlag)
 }
 
 
