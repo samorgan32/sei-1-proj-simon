@@ -18,12 +18,16 @@ const userSequence = []
 // })
 
 // function to revert style back after click 
-function revertBackground(event) {
-    gridBlock1.style.background = '#92d6c3'
-    gridBlock2.style.background = '#92d6c3'
+// function revertBackground() {
+//     gridBlock1.style.background = '#92d6c3'
+//     gridBlock2.style.background = '#92d6c3'
+// }
+
+function revertBackground() {
+    gridBlocks.forEach(gridBlock => {
+        gridBlock.style.background = '#92d6c3'
+    })
 }
-
-
 
 
 //generate random sequence
