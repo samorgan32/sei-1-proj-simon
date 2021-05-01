@@ -165,12 +165,21 @@ function compareSequences() {
         console.log('game over')
     }
     console.log(comparisonSequence)
+    setTimeout(clearComparisonSequence, 200)
 }
 
-
+//clear comparisonSequence
+function clearComparisonSequence() {
+    for (let i = 0; i = comparisonSequence.length; i++) {
+        comparisonSequence.shift()
+    }
+    console.log(comparisonSequence)
+}
 
 
 
 
 const submitButton = document.querySelector('#submit')
 submitButton.addEventListener('click', compareSequences)
+// const clearComparisonButton = document.querySelector('#clear-sequence')
+// clearSequenceButton.addEventListener('click', clearUserSequence)
