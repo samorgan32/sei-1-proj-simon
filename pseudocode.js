@@ -46,7 +46,24 @@ const generateButton = document.querySelector('#generate')
 // })
 
 
-generateButton.addEventListener('click', (event) => {
+// generateButton.addEventListener('click', (event) => {
+//     for (let i = 2; i < 3; i++) {
+//         let num = Math.floor(Math.random() * 2)
+//         if (num === 0) {
+//             sequence.push(gridBlock1)
+//         } else {
+//             sequence.push(gridBlock2)
+//         }
+//         console.log(sequence)
+//     }
+//     initiateSequence()
+//     clearUserSequence()
+// })
+
+generateButton.addEventListener('click', generateSequence)
+
+
+function generateSequence() {
     for (let i = 2; i < 3; i++) {
         let num = Math.floor(Math.random() * 2)
         if (num === 0) {
@@ -58,7 +75,10 @@ generateButton.addEventListener('click', (event) => {
     }
     initiateSequence()
     clearUserSequence()
-})
+}
+
+
+
 
 //each click adds one random '0' or '1' to the array, increasing the array by one
 //assign each a styling to hide or show the block
@@ -215,10 +235,17 @@ function clearSequence() {
 newGameButton.addEventListener('click', clearSequence)
 
 // set limit on clicking generate unless user sequence has started
-// submit button pushes flag into array
-
-
+// submit button pushes flag into array - done
+//generate needs to clear submit array or use array .length for check
 //if sequence is [] = generate can run
+// if (sequence.length === 0) {
+//     //run generate
+// } else if (sequence.length !== 0) {
+//     if (generateFlag.length === sequence.length) {
+//         //run generate function
+//     } else {
+//         // don't run generate function
+//     }
 //if sequence ![] then check if submit array is [].
 //if submit array is empty, don't run generate.
 //if submit is populated, run generate and clear submitarray. 
