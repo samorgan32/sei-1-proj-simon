@@ -53,6 +53,7 @@ generateButton.addEventListener('click', (event) => {
         console.log(sequence)
     }
     initiateSequence()
+    clearUserSequence()
 })
 
 //each click adds one random '0' or '1' to the array, increasing the array by one
@@ -179,5 +180,3 @@ function clearComparisonSequence() {
 
 const submitButton = document.querySelector('#submit')
 submitButton.addEventListener('click', compareSequences)
-// const clearComparisonButton = document.querySelector('#clear-sequence')
-// clearSequenceButton.addEventListener('click', clearUserSequence)

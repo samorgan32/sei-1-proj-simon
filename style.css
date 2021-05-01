@@ -33,6 +33,10 @@ body {
 display: none;
 }
 
+#clear-sequence {
+    display: none;
+}
+
 button {
     background: #d1a7d1 ;
     color: black;
