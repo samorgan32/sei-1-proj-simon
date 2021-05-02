@@ -20,12 +20,12 @@ function revertBackground() {
 //assign each block either 0 or 1, generate random 0 or 1, 
 
 const sequenceButton = document.querySelector('#initiate')
-const generateButton = document.querySelector('#generate')
+// const generateButton = document.querySelector('#generate')
 
 
 //generates random sequence but also limits when a sequence can generate
 
-generateButton.addEventListener('click', delayedSequenceStart)
+// generateButton.addEventListener('click', delayedSequenceStart)
 
 function finalSequenceStart() {
     if (sequence.length === 0) {
@@ -158,7 +158,7 @@ function compareSequences() {
         delayedSequenceStart()
     } else {
         resultMessage.innerText = 'result: game over'
-        setTimeout(clearSequence, 1000)
+        // setTimeout(clearSequence, 1000)
     }
     console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
@@ -188,6 +188,7 @@ function clearSequence() {
     clearGenerateFlag()
     score.innerText = 'score:'
     resultMessage.innerText = 'result:'
+    delayedSequenceStart()
 }
 
 newGameButton.addEventListener('click', clearSequence)
