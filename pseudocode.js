@@ -209,12 +209,14 @@ function clearGenerateFlag() {
 
 const gridDiv = document.querySelector('.grid')
 const addBlockButton = document.querySelector('#add-block')
+let blockIndex = 1
 
 function addBlocks() {
     const newBlock = document.createElement('div')
     gridDiv.appendChild(newBlock)
     newBlock.classList.add('grid-block')
-
+    blockIndex++
+    newBlock.classList.add(`gb${blockIndex}`)
 }
 
 addBlockButton.addEventListener('click', (event) => {
