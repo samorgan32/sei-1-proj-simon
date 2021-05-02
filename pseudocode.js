@@ -1,9 +1,9 @@
 
 // Make blocks clickable. 
-const gridBlock1 = document.querySelector('.gb1')
-const gridBlock2 = document.querySelector('.gb2')
-const gridBlock3 = document.querySelector('.gb3')
-const gridBlock4 = document.querySelector('.gb4')
+// const gridBlock1 = document.querySelector('.gb1')
+// const gridBlock2 = document.querySelector('.gb2')
+// const gridBlock3 = document.querySelector('.gb3')
+// const gridBlock4 = document.querySelector('.gb4')
 const gridBlocks = document.querySelectorAll('.grid-block')
 const sequence = []
 const userSequence = []
@@ -205,7 +205,19 @@ function clearGenerateFlag() {
     console.log(generateFlag)
 }
 
-//need to limit user from advancing on correct sequence plus extra.
-//generate flag is being pushed on game over  order of operations issue 
 
 
+const gridDiv = document.querySelector('.grid')
+const addBlockButton = document.querySelector('#add-block')
+
+function addBlocks() {
+    const newBlock = document.createElement('div')
+    gridDiv.appendChild(newBlock)
+    newBlock.classList.add('grid-block')
+
+}
+
+addBlockButton.addEventListener('click', (event) => {
+    addBlocks()
+    addBlocks()
+})
