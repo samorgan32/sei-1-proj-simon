@@ -42,19 +42,7 @@ function delayedSequenceStart() {
 }
 // generateButton.addEventListener('click', generateSequence)
 
-// function generateSequence() {
-//     for (let i = 0; i < 1; i++) {
-//         let num = Math.floor(Math.random() * 2)
-//         if (num === 0) {
-//             sequence.push(gridBlock1)
-//         } else {
-//             sequence.push(gridBlock2)
-//         }
-//         console.log(sequence)
-//     }
-//     initiateSequence()
-//     clearUserSequence()
-// }
+
 
 function generateSequence() {
     let num = Math.floor(Math.random() * 2)
@@ -134,7 +122,7 @@ clearSequenceButton.addEventListener('click', clearUserSequence)
 //compare the sequences
 const comparisonSequence = []
 const generateFlag = []
-
+let resultMessage = document.querySelector('#result')
 
 function compareSequences() {
     for (let i = 0; i < sequence.length; i++) {
@@ -143,11 +131,13 @@ function compareSequences() {
         }
     }
     if (comparisonSequence.length === sequence.length && sequence.length === userSequence.length) {
-        console.log('advance')
+        // console.log('advance')
+        resultMessage.innerText = 'advance'
         generateFlag.push('generate')
         console.log(generateFlag)
     } else {
-        console.log('game over')
+        // console.log('game over')
+        resultMessage.innerText = 'game over'
         clearSequence()
     }
     console.log(comparisonSequence)
