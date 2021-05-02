@@ -122,7 +122,8 @@ clearSequenceButton.addEventListener('click', clearUserSequence)
 //compare the sequences
 const comparisonSequence = []
 const generateFlag = []
-let resultMessage = document.querySelector('#result')
+const resultMessage = document.querySelector('#result')
+const memories = document.querySelector('#memories')
 
 function compareSequences() {
     for (let i = 0; i < sequence.length; i++) {
@@ -131,13 +132,12 @@ function compareSequences() {
         }
     }
     if (comparisonSequence.length === sequence.length && sequence.length === userSequence.length) {
-        // console.log('advance')
-        resultMessage.innerText = 'advance'
+        resultMessage.innerText = 'result: advance'
+        score.innerText = 'score: ' + sequence.length
         generateFlag.push('generate')
         console.log(generateFlag)
     } else {
-        // console.log('game over')
-        resultMessage.innerText = 'game over'
+        resultMessage.innerText = 'result: game over'
         clearSequence()
     }
     console.log(comparisonSequence)
@@ -166,6 +166,8 @@ function clearSequence() {
     }
     console.log(sequence)
     clearGenerateFlag()
+    score.innerText = 'score:'
+    resultMessage.innerText = ''
 }
 
 newGameButton.addEventListener('click', clearSequence)
