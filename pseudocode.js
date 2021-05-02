@@ -9,9 +9,39 @@ const sequence = []
 const userSequence = []
 
 
+//make the blocks flash 
+// function delay(i) {
+//     sequence[i].style.background = 'beige'
+//     setTimeout(revertBackground, time)
+// }
+
+function delay(i) {
+    sequence[i].style.visibility = 'hidden'
+    setTimeout(revertBackground, time)
+}
+
+
+// Make blocks clickable. Need to remove the clicking in the gap and have it set to only the div if possible 
+//make blocks flash on user clicks
+// function userDelay(block) {
+//     block.style.background = 'beige'
+//     setTimeout(revertBackground, time)
+// }
+
+function userDelay(block) {
+    block.style.visibility = 'hidden'
+    setTimeout(revertBackground, time)
+}
+
+// function revertBackground() {
+//     gridBlocks.forEach(gridBlock => {
+//         gridBlock.style.background = '#92d6c3'
+//     })
+// }
+
 function revertBackground() {
     gridBlocks.forEach(gridBlock => {
-        gridBlock.style.background = '#92d6c3'
+        gridBlock.style.visibility = 'visible'
     })
 }
 
@@ -100,19 +130,7 @@ function initiateSequence() {
 
 
 
-//make the blocks flash 
-function delay(i) {
-    sequence[i].style.background = 'beige'
-    setTimeout(revertBackground, time)
-}
 
-
-// Make blocks clickable. Need to remove the clicking in the gap and have it set to only the div if possible 
-//make blocks flash on user clicks
-function userDelay(block) {
-    block.style.background = 'beige'
-    setTimeout(revertBackground, time)
-}
 
 //Store the user initiated sequence 
 // on end of initiate sequence, window needs to open for a user to input their sequence which can be stored in an array.  

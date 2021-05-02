@@ -21,6 +21,16 @@ body {
 }
 
 .grid-block {
+    visibility: visible;
+    background: #92d6c3;
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    border: outset;
+}
+
+.alternate-grid-block{
+    display: none;
     background: #92d6c3;
     height: 200px;
     width: 200px;
