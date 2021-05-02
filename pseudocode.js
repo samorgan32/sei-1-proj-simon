@@ -138,6 +138,7 @@ const clearSequenceButton = document.querySelector('#clear-sequence')
 clearSequenceButton.addEventListener('click', clearUserSequence)
 
 //compare the sequences
+// run generate if correct, clear if incorrect 
 const comparisonSequence = []
 const generateFlag = []
 const resultMessage = document.querySelector('#result')
@@ -154,6 +155,7 @@ function compareSequences() {
         score.innerText = 'score: ' + sequence.length
         generateFlag.push('generate')
         console.log(generateFlag)
+        delayedSequenceStart()
     } else {
         resultMessage.innerText = 'result: game over'
         setTimeout(clearSequence, 1000)
@@ -218,3 +220,5 @@ function clearGenerateFlag() {
 
 //need to limit user from advancing on correct sequence plus extra.
 //generate flag is being pushed on game over  order of operations issue 
+
+
