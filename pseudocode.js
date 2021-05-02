@@ -36,22 +36,34 @@ function finalSequenceStart() {
         }
     }
 }
-
+//delays start of sequence so user sees it 
 function delayedSequenceStart() {
     setTimeout(finalSequenceStart, 2000)
 }
 // generateButton.addEventListener('click', generateSequence)
 
+// function generateSequence() {
+//     for (let i = 0; i < 1; i++) {
+//         let num = Math.floor(Math.random() * 2)
+//         if (num === 0) {
+//             sequence.push(gridBlock1)
+//         } else {
+//             sequence.push(gridBlock2)
+//         }
+//         console.log(sequence)
+//     }
+//     initiateSequence()
+//     clearUserSequence()
+// }
+
 function generateSequence() {
-    for (let i = 2; i < 3; i++) {
-        let num = Math.floor(Math.random() * 2)
-        if (num === 0) {
-            sequence.push(gridBlock1)
-        } else {
-            sequence.push(gridBlock2)
-        }
-        console.log(sequence)
+    let num = Math.floor(Math.random() * 2)
+    if (num === 0) {
+        sequence.push(gridBlock1)
+    } else {
+        sequence.push(gridBlock2)
     }
+    console.log(sequence)
     initiateSequence()
     clearUserSequence()
 }
