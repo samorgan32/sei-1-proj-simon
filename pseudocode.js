@@ -22,7 +22,10 @@ const generateButton = document.querySelector('#generate')
 
 
 //generates random sequence but also limits when a sequence can generate
-generateButton.addEventListener('click', (event) => {
+
+generateButton.addEventListener('click', delayedSequenceStart)
+
+function finalSequenceStart() {
     if (sequence.length === 0) {
         generateSequence()
     } else if (sequence.length !== 0) {
@@ -32,8 +35,11 @@ generateButton.addEventListener('click', (event) => {
             console.log('user plays first')
         }
     }
-})
+}
 
+function delayedSequenceStart() {
+    setTimeout(finalSequenceStart, 2000)
+}
 // generateButton.addEventListener('click', generateSequence)
 
 function generateSequence() {
