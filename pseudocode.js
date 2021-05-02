@@ -6,7 +6,6 @@
 // const gridBlock4 = document.querySelector('.gb4')
 const gridBlocks = document.querySelectorAll('.grid-block')
 const gridBlocksArray = Array.from(gridBlocks)
-// console.log(gridBlocksArray)
 const sequence = []
 const userSequence = []
 
@@ -219,6 +218,8 @@ function addBlocks() {
     newBlock.classList.add('grid-block')
     blockIndex++
     newBlock.classList.add(`gb${blockIndex}`)
+    gridBlocksArray.push(newBlock)
+    console.log(gridBlocksArray)
 }
 
 addBlockButton.addEventListener('click', (event) => {
