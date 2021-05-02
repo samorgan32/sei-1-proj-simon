@@ -2,6 +2,8 @@
 // Make blocks clickable. 
 const gridBlock1 = document.querySelector('.gb1')
 const gridBlock2 = document.querySelector('.gb2')
+const gridBlock3 = document.querySelector('.gb3')
+const gridBlock4 = document.querySelector('.gb4')
 const gridBlocks = document.querySelectorAll('.grid-block')
 const sequence = []
 const userSequence = []
@@ -44,12 +46,28 @@ function delayedSequenceStart() {
 
 
 
+// function generateSequence() {
+//     let num = Math.floor(Math.random() * 2)
+//     if (num === 0) {
+//         sequence.push(gridBlock1)
+//     } else {
+//         sequence.push(gridBlock2)
+//     }
+//     console.log(sequence)
+//     initiateSequence()
+//     clearUserSequence()
+// }
+
 function generateSequence() {
-    let num = Math.floor(Math.random() * 2)
+    let num = Math.floor(Math.random() * 4)
     if (num === 0) {
         sequence.push(gridBlock1)
-    } else {
+    } else if (num === 1) {
         sequence.push(gridBlock2)
+    } else if (num === 2) {
+        sequence.push(gridBlock3)
+    } else {
+        sequence.push(gridBlock4)
     }
     console.log(sequence)
     initiateSequence()
