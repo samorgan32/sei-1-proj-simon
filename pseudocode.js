@@ -156,7 +156,7 @@ function compareSequences() {
         console.log(generateFlag)
     } else {
         resultMessage.innerText = 'result: game over'
-        clearSequence()
+        setTimeout(clearSequence, 1000)
     }
     console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
@@ -185,7 +185,7 @@ function clearSequence() {
     console.log(sequence)
     clearGenerateFlag()
     score.innerText = 'score:'
-    resultMessage.innerText = ''
+    resultMessage.innerText = 'result:'
 }
 
 newGameButton.addEventListener('click', clearSequence)
