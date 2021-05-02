@@ -5,6 +5,8 @@
 // const gridBlock3 = document.querySelector('.gb3')
 // const gridBlock4 = document.querySelector('.gb4')
 const gridBlocks = document.querySelectorAll('.grid-block')
+const gridBlocksArray = Array.from(gridBlocks)
+// console.log(gridBlocksArray)
 const sequence = []
 const userSequence = []
 
@@ -28,7 +30,7 @@ function userDelay(block) {
 
 
 function revertBackground() {
-    gridBlocks.forEach(gridBlock => {
+    gridBlocksArray.forEach(gridBlock => {
         gridBlock.style.visibility = 'visible'
     })
 }
@@ -65,8 +67,8 @@ function delayedSequenceStart() {
 //generates the auto sequence
 
 function generateSequence() {
-    let num = Math.floor(Math.random() * gridBlocks.length)
-    sequence.push(gridBlocks[num])
+    let num = Math.floor(Math.random() * gridBlocksArray.length)
+    sequence.push(gridBlocksArray[num])
     console.log(sequence)
     initiateSequence()
     clearUserSequence()
@@ -103,7 +105,7 @@ function initiateSequence() {
 //Store the user initiated sequence 
 // on end of initiate sequence, window needs to open for a user to input their sequence which can be stored in an array.  
 
-gridBlocks.forEach(gridBlock => {
+gridBlocksArray.forEach(gridBlock => {
     gridBlock.addEventListener('click', (event) => {
         let block = event.target
         userDelay(block)
