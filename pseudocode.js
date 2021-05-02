@@ -205,7 +205,7 @@ function clearGenerateFlag() {
     console.log(generateFlag)
 }
 
-
+//add blocks to the grid.  need to change nodelist to array so they can be used in sequences 
 
 const gridDiv = document.querySelector('.grid')
 const addBlockButton = document.querySelector('#add-block')

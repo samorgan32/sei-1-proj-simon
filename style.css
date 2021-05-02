@@ -29,15 +29,6 @@ body {
     border: outset;
 }
 
-.alternate-grid-block{
-    display: none;
-    background: #92d6c3;
-    height: 200px;
-    width: 200px;
-    margin: auto;
-    border: outset;
-}
-
 
 #initiate {
 display: none;
@@ -51,4 +42,28 @@ button {
     background: #d1a7d1 ;
     color: black;
     border: outset;
+}
+
+.gb0{
+background: #70D8E0;
+}
+
+.gb1{
+    background: #70A0E0;
+}
+
+.gb2{
+    background: #7870E0;
+}
+
+.gb3 {
+    background: #B070E0;
+}
+
+.gb4{
+    background: #E070D8;
+}
+
+.gb5{
+    background: #E070A0;
 }
