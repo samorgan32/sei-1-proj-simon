@@ -62,31 +62,11 @@ function delayedSequenceStart() {
 }
 // generateButton.addEventListener('click', generateSequence)
 
-
-
-// function generateSequence() {
-//     let num = Math.floor(Math.random() * 2)
-//     if (num === 0) {
-//         sequence.push(gridBlock1)
-//     } else {
-//         sequence.push(gridBlock2)
-//     }
-//     console.log(sequence)
-//     initiateSequence()
-//     clearUserSequence()
-// }
+//generates the auto sequence
 
 function generateSequence() {
-    let num = Math.floor(Math.random() * 4)
-    if (num === 0) {
-        sequence.push(gridBlock1)
-    } else if (num === 1) {
-        sequence.push(gridBlock2)
-    } else if (num === 2) {
-        sequence.push(gridBlock3)
-    } else {
-        sequence.push(gridBlock4)
-    }
+    let num = Math.floor(Math.random() * gridBlocks.length)
+    sequence.push(gridBlocks[num])
     console.log(sequence)
     initiateSequence()
     clearUserSequence()
