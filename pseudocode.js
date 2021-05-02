@@ -10,10 +10,6 @@ const userSequence = []
 
 
 //make the blocks flash 
-// function delay(i) {
-//     sequence[i].style.background = 'beige'
-//     setTimeout(revertBackground, time)
-// }
 
 function delay(i) {
     sequence[i].style.visibility = 'hidden'
@@ -23,21 +19,13 @@ function delay(i) {
 
 // Make blocks clickable. Need to remove the clicking in the gap and have it set to only the div if possible 
 //make blocks flash on user clicks
-// function userDelay(block) {
-//     block.style.background = 'beige'
-//     setTimeout(revertBackground, time)
-// }
+
 
 function userDelay(block) {
     block.style.visibility = 'hidden'
     setTimeout(revertBackground, time)
 }
 
-// function revertBackground() {
-//     gridBlocks.forEach(gridBlock => {
-//         gridBlock.style.background = '#92d6c3'
-//     })
-// }
 
 function revertBackground() {
     gridBlocks.forEach(gridBlock => {
@@ -49,7 +37,7 @@ function revertBackground() {
 //generate random sequence
 //assign each block either 0 or 1, generate random 0 or 1, 
 
-const sequenceButton = document.querySelector('#initiate')
+// const sequenceButton = document.querySelector('#initiate')
 // const generateButton = document.querySelector('#generate')
 
 
@@ -114,7 +102,7 @@ function generateSequence() {
 
 
 // button triggers the sequence 
-sequenceButton.addEventListener('click', initiateSequence)
+// sequenceButton.addEventListener('click', initiateSequence)
 
 
 //trigger the computer generated sequence 
@@ -152,8 +140,8 @@ function clearUserSequence() {
     console.log(userSequence)
 }
 
-const clearSequenceButton = document.querySelector('#clear-sequence')
-clearSequenceButton.addEventListener('click', clearUserSequence)
+// const clearSequenceButton = document.querySelector('#clear-sequence')
+// clearSequenceButton.addEventListener('click', clearUserSequence)
 
 //compare the sequences
 // run generate if correct, clear if incorrect 
