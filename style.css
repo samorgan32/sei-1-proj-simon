@@ -3,13 +3,13 @@ body {
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: 200px 200px;
+    /* display: flex; */
+    /* grid-template-columns: 200px 200px;
     grid-template-rows: auto;
     justify-content: space-around;
     justify-items: center;
     align-content: space-around;
-    grid-gap: 10%;
+    grid-gap: 10%; */
 
     position: absolute;
     left: 50%;
@@ -26,6 +26,7 @@ body {
     width: 200px;
     margin: auto;
     border: outset;
+    display: inline-block;
 }
 
 
@@ -51,20 +52,55 @@ background: #f8a488;
 
 .gb1{
     background: #5aa897;
+    height: 185px;
+    width: 100px;
+
 }
 
 .gb2{
     background: #45526c;
+    height: 170px;
+    width: 120px;
 }
 
 .gb3 {
     background: #ff8882;
+    height: 150px;
+    width: 170px;
 }
 
 .gb4{
     background: #ffc2b4;
+    height: 100px;
+    width: 50px;
 }
 
 .gb5{
     background: #194350;
+    height: 100px;
+    width: 100px;
+}
+
+.gb6{
+    background: #f8a488;
+    height: 85px;
+    width: 110px;
+}
+
+.gb7{
+    background: #5aa897;
+    height: 90px;
+    width: 75px;
+}
+
+.gb8{
+    background: #45526c;
+    height: 75px;
+    width: 75px;
+}
+
+.gb9{
+    background: #ff8882;
+    height: 50px;
+    width: 85px;
 }
