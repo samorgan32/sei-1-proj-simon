@@ -1,0 +1,70 @@
+body {
+    background: #f8f5f1;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: auto;
+    justify-content: space-around;
+    justify-items: center;
+    align-content: space-around;
+    grid-gap: 10%;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+   
+
+}
+
+.grid-block {
+    visibility: visible;
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    border: outset;
+}
+
+
+#initiate {
+display: none;
+}
+
+#clear-sequence {
+    display: none;
+}
+
+button {
+    background: #f8f5f1 ;
+    color: black;
+    border: outset;
+    width: 80px;
+    height:50px;
+}
+
+.gb0{
+background: #f8a488;
+}
+
+.gb1{
+    background: #5aa897;
+}
+
+.gb2{
+    background: #45526c;
+}
+
+.gb3 {
+    background: #ff8882;
+}
+
+.gb4{
+    background: #ffc2b4;
+}
+
+.gb5{
+    background: #194350;
+}
