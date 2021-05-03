@@ -1,17 +1,16 @@
 body {
-    background: #f8f5f1;
+    background: #d0c7bb;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 50% 50% 50%;    
+    grid-template-columns: 1fr .5fr 1.2fr .75fr;
+    grid-template-rows: 1fr .75fr .5fr;    
     box-sizing:border-box;
     width: 50%;
     height: 50%;
     margin-left: auto;
     margin-right: auto;
-    border: 2px dashed black;
     justify-items: stretch;
     align-items: stretch;
     justify-content: space-evenly;
@@ -28,7 +27,7 @@ body {
     box-sizing: border-box;
     width: 100%;
     height: -50%;
-    border: 2px dashed black;
+    border: 2px outset white;
     visibility: visible;
 
         /* margin: auto;
@@ -56,49 +55,68 @@ button {
 
 .gb0{
 background: #f8a488;
-
+align-self:stretch;
+grid-column-start:2;
+grid-column-end: 3;
+grid-row-start: 2;
+grid-row-end: 2;
 }
 
 .gb1{
     background: #5aa897;
-   
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
 
 }
 
 .gb2{
     background: #45526c;
-    /* height: 160px;
-    width: px; */
+    grid-column-start:3;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 .gb3 {
     background: #ff8882;
-    /* height: 160px;
-    width: 300px; */
+    grid-column-start:4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
 }
 
 .gb4{
     background: #ffc2b4;
-    /* height: 100px;
-    width: 60px; */
+    grid-column-start:3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
 }
 
 .gb5{
     background: #194350;
-    /* height: 100px;
-    width: 130px; */
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 .gb6{
     background: #f8a488;
-    /* height: 100px;
-    width: 90px; */
+    grid-column-start:3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
 }
 
 .gb7{
     background: #5aa897;
-    /* height: 75px;
-    width: 180px; */
+    grid-column-start:4;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 .gb8{
@@ -122,5 +140,4 @@ background: #f8a488;
 
 .gb11{
     background: #194350;
-
 }

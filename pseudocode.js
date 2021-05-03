@@ -181,11 +181,15 @@ function compareSequences() {
     console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
     if (sequence.length === 1) {
-        addBlocks()
-        addBlocks()
-        addBlocks()
+        setTimeout(addBlocks, 500)
+        setTimeout(addBlocks, 1000)
+        setTimeout(addBlocks, 1500)
     } else if (sequence.length % 4 === 0 && sequence.length < 37) {
-        addBlocks()
+        setTimeout(addBlocks, 500)
+        setTimeout(addBlocks, 1000)
+        setTimeout(addBlocks, 1500)
+        setTimeout(addBlocks, 2000)
+
     }
 
 }
