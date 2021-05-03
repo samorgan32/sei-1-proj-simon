@@ -1,6 +1,6 @@
 
 // Make blocks clickable. 
-// const gridBlock1 = document.querySelector('.gb1')
+const gridBlock1 = document.querySelector('.gb1')
 // const gridBlock2 = document.querySelector('.gb2')
 // const gridBlock3 = document.querySelector('.gb3')
 // const gridBlock4 = document.querySelector('.gb4')
@@ -117,13 +117,12 @@ function userSequenceInitiate() {
     })
 };
 
+
 function userSequenceRemove() {
     gridBlocksArray.forEach(gridBlock => {
         gridBlock.removeEventListener('click', userSequenceInitiate)
     })
 }
-
-userSequenceInitiate()
 
 
 function userDelay(block) {
@@ -244,48 +243,9 @@ const gridDiv = document.querySelector('.grid')
 const addBlockButton = document.querySelector('#add-block')
 let blockIndex = 1
 
-// function addBlocks() {
-//     const newBlock = document.createElement('div')
-//     gridDiv.appendChild(newBlock)
-//     newBlock.classList.add('grid-block')
-//     blockIndex++
-//     newBlock.classList.add(`gb${blockIndex}`)
-//     gridBlocksArray.push(newBlock)
-//     gridBlocksArray.forEach(gridBlock => {
-//         gridBlock.removeEventListener('click', userSequenceInitiate)
-//         gridBlock.addEventListener('click', (event) => {
-//             let block = event.target
-//             userDelay(block)
-//             userSequence.push(event.target)
-//             console.log(userSequence)
-//         })
 
-//     });
+userSequenceInitiate()
 
-//     console.log(gridBlocksArray)
-// }
-
-
-// function addBlocks() {
-//     const newBlock = document.createElement('div')
-//     gridDiv.appendChild(newBlock)
-//     newBlock.classList.add('grid-block')
-//     blockIndex++
-//     newBlock.classList.add(`gb${blockIndex}`)
-//     gridBlocksArray.push(newBlock)
-//     gridBlocksArray.forEach(gridBlock => {
-//         gridBlock.removeEventListener('click', userSequenceInitiate)
-//         gridBlock.addEventListener('click', (event) => {
-//             let block = event.target
-//             userDelay(block)
-//             userSequence.push(event.target)
-//             console.log(userSequence)
-//         })
-
-//     });
-
-//     console.log(gridBlocksArray)
-// }
 
 function addBlocks() {
     const newBlock = document.createElement('div')
@@ -294,13 +254,21 @@ function addBlocks() {
     blockIndex++
     newBlock.classList.add(`gb${blockIndex}`)
     gridBlocksArray.push(newBlock)
-    userSequenceRemove()
-    userSequenceInitiate()
+    newBlock.addEventListener('click', (event) => {
+        let block = event.target
+        userDelay(block)
+        userSequence.push(event.target)
+        console.log(userSequence)
+
+    })
+    // });
     console.log(gridBlocksArray)
 }
 
 
+
 addBlockButton.addEventListener('click', (event) => {
     addBlocks()
-    // addBlocks()
+    addBlocks()
 })
+
