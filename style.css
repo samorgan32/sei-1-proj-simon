@@ -3,30 +3,37 @@ body {
 }
 
 .grid {
-    /* display: flex; */
-    /* grid-template-columns: 200px 200px;
-    grid-template-rows: auto;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+
+    box-sizing: border-box;
+    width: 50%;
+    height: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px dashed black;
     justify-items: center;
-    align-content: space-around;
-    grid-gap: 10%; */
+    align-items: center;
+    justify-content: space-evenly;
+    align-content:space-evenly;
+
 
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding: 10px;
-   
-
 }
 
 .grid-block {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border: 2px dashed black;
     visibility: visible;
-    height: 200px;
-    width: 200px;
-    margin: auto;
+    /* margin: auto;
     border: outset;
     display: inline-block;
+    align-self: stretch */
 }
 
 
@@ -48,59 +55,83 @@ button {
 
 .gb0{
 background: #f8a488;
+justify-self:center;
+align-self:center;
 }
 
 .gb1{
     background: #5aa897;
-    height: 185px;
-    width: 100px;
+    /* height: 200px;;
+    width: 100px; */
+    justify-self:center;
+align-self:center;
 
 }
 
 .gb2{
     background: #45526c;
-    height: 170px;
-    width: 120px;
+    /* height: 160px;
+    width: px; */
+    justify-self:center;
+align-self:center;
 }
 
 .gb3 {
     background: #ff8882;
-    height: 150px;
-    width: 170px;
+    /* height: 160px;
+    width: 300px; */
+    justify-self:center;
+align-self:center;
 }
 
 .gb4{
     background: #ffc2b4;
-    height: 100px;
-    width: 50px;
+    /* height: 100px;
+    width: 60px; */
 }
 
 .gb5{
     background: #194350;
-    height: 100px;
-    width: 100px;
+    /* height: 100px;
+    width: 130px; */
 }
 
 .gb6{
     background: #f8a488;
-    height: 85px;
-    width: 110px;
+    /* height: 100px;
+    width: 90px; */
 }
 
 .gb7{
     background: #5aa897;
-    height: 90px;
-    width: 75px;
+    /* height: 75px;
+    width: 180px; */
 }
 
 .gb8{
     background: #45526c;
-    height: 75px;
-    width: 75px;
+    /* height: 75px;
+    width: 110px; */
+    justify-self:center;
+align-self:center;
 }
 
 .gb9{
     background: #ff8882;
-    height: 50px;
-    width: 85px;
+    /* height: 50px; */
+    /* width: 300px; */
+    justify-self:center;
+align-self:center;
+}
+
+.gb10{
+    background: #ffc2b4;
+    justify-self:center;
+align-self:center;
+}
+
+.gb11{
+    background: #194350;
+    justify-self:center;
+align-self:center;
 }

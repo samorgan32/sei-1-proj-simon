@@ -1,6 +1,6 @@
 
 // Make blocks clickable. 
-const gridBlock1 = document.querySelector('.gb1')
+// const gridBlock1 = document.querySelector('.gb1')
 // const gridBlock2 = document.querySelector('.gb2')
 // const gridBlock3 = document.querySelector('.gb3')
 // const gridBlock4 = document.querySelector('.gb4')
@@ -180,7 +180,11 @@ function compareSequences() {
     }
     console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
-    if (sequence.length % 3 === 0 && sequence.length < 31) {
+    if (sequence.length === 1) {
+        addBlocks()
+        addBlocks()
+        addBlocks()
+    } else if (sequence.length % 4 === 0 && sequence.length < 37) {
         addBlocks()
     }
 
@@ -246,7 +250,7 @@ function clearGenerateFlag() {
 
 const gridDiv = document.querySelector('.grid')
 const addBlockButton = document.querySelector('#add-block')
-let blockIndex = 1
+let blockIndex = 0
 
 
 userSequenceInitiate()
@@ -274,7 +278,7 @@ function addBlocks() {
 
 addBlockButton.addEventListener('click', (event) => {
     addBlocks()
-    addBlocks()
+    // addBlocks()
 })
 
 //add blocks automatically 
