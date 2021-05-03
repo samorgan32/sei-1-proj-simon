@@ -106,16 +106,16 @@ function initiateSequence() {
 
 //Store the user initiated sequence 
 //   
-
-gridBlocksArray.forEach(gridBlock => {
-    gridBlock.addEventListener('click', (event) => {
-        let block = event.target
-        userDelay(block)
-        userSequence.push(event.target)
-        console.log(userSequence)
+function userSequenceInitiate() {
+    gridBlocksArray.forEach(gridBlock => {
+        gridBlock.addEventListener('click', (event) => {
+            let block = event.target
+            userDelay(block)
+            userSequence.push(event.target)
+            console.log(userSequence)
+        })
     })
-});
-
+};
 
 
 function userDelay(block) {
@@ -236,6 +236,28 @@ const gridDiv = document.querySelector('.grid')
 const addBlockButton = document.querySelector('#add-block')
 let blockIndex = 1
 
+// function addBlocks() {
+//     const newBlock = document.createElement('div')
+//     gridDiv.appendChild(newBlock)
+//     newBlock.classList.add('grid-block')
+//     blockIndex++
+//     newBlock.classList.add(`gb${blockIndex}`)
+//     gridBlocksArray.push(newBlock)
+//     gridBlocksArray.forEach(gridBlock => {
+//         gridBlock.removeEventListener('click', userSequenceInitiate)
+//         gridBlock.addEventListener('click', (event) => {
+//             let block = event.target
+//             userDelay(block)
+//             userSequence.push(event.target)
+//             console.log(userSequence)
+//         })
+
+//     });
+
+//     console.log(gridBlocksArray)
+// }
+
+
 function addBlocks() {
     const newBlock = document.createElement('div')
     gridDiv.appendChild(newBlock)
@@ -244,6 +266,7 @@ function addBlocks() {
     newBlock.classList.add(`gb${blockIndex}`)
     gridBlocksArray.push(newBlock)
     gridBlocksArray.forEach(gridBlock => {
+        gridBlock.removeEventListener('click', userSequenceInitiate)
         gridBlock.addEventListener('click', (event) => {
             let block = event.target
             userDelay(block)
@@ -258,5 +281,5 @@ function addBlocks() {
 
 addBlockButton.addEventListener('click', (event) => {
     addBlocks()
-    addBlocks()
+    // addBlocks()
 })
