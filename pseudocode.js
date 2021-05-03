@@ -180,7 +180,12 @@ function compareSequences() {
     }
     console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
+    if (sequence.length % 3 === 0 && sequence.length < 31) {
+        addBlocks()
+    }
+
 }
+
 
 
 //clear comparisonSequence
@@ -272,3 +277,11 @@ addBlockButton.addEventListener('click', (event) => {
     addBlocks()
 })
 
+//add blocks automatically 
+function increaseBlockCount() {
+    if (sequence.length === '3') {
+        addBlocks()
+        addBlocks()
+    }
+}
+increaseBlockCount()
