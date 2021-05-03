@@ -5,6 +5,7 @@
 // const gridBlock3 = document.querySelector('.gb3')
 // const gridBlock4 = document.querySelector('.gb4')
 const gridBlocks = document.querySelectorAll('.grid-block')
+// const gridBlocks = document.getElementsByClassName('.grid-block')
 const gridBlocksArray = Array.from(gridBlocks)
 const sequence = []
 const userSequence = []
@@ -130,7 +131,7 @@ function revertBackground() {
     })
 }
 
-
+/////////////////////////////////////////////
 
 //clear the user sequence
 function clearUserSequence() {
@@ -141,7 +142,7 @@ function clearUserSequence() {
 }
 
 
-/////////////////////////////////////////////
+
 
 
 // const clearSequenceButton = document.querySelector('#clear-sequence')
@@ -242,6 +243,16 @@ function addBlocks() {
     blockIndex++
     newBlock.classList.add(`gb${blockIndex}`)
     gridBlocksArray.push(newBlock)
+    gridBlocksArray.forEach(gridBlock => {
+        gridBlock.addEventListener('click', (event) => {
+            let block = event.target
+            userDelay(block)
+            userSequence.push(event.target)
+            console.log(userSequence)
+        })
+
+    });
+
     console.log(gridBlocksArray)
 }
 
