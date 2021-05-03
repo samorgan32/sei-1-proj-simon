@@ -18,21 +18,23 @@ function delay(i) {
 }
 
 
-// Make blocks clickable. Need to remove the clicking in the gap and have it set to only the div if possible 
+
+
+// Make blocks clickable. 
 //make blocks flash on user clicks
 
 
-function userDelay(block) {
-    block.style.visibility = 'hidden'
-    setTimeout(revertBackground, time)
-}
+// function userDelay(block) {
+//     block.style.visibility = 'hidden'
+//     setTimeout(revertBackground, time)
+// }
 
 
-function revertBackground() {
-    gridBlocksArray.forEach(gridBlock => {
-        gridBlock.style.visibility = 'visible'
-    })
-}
+// function revertBackground() {
+//     gridBlocksArray.forEach(gridBlock => {
+//         gridBlock.style.visibility = 'visible'
+//     })
+// }
 
 
 //generate random sequence
@@ -87,22 +89,22 @@ function generateSequence() {
 
 
 //trigger the computer generated sequence 
-let time = 300
+let time = 150
 let newTime = 0
 
 function initiateSequence() {
     for (let i = 0; i < sequence.length; i++) {
-        let newTime = i * 1000
+        let newTime = i * 700
         x = setTimeout(function () { delay(i) }, newTime)
     }
 }
 
 
 
-
+///////////////////////////////////////////DEBUG/////////////
 
 //Store the user initiated sequence 
-// on end of initiate sequence, window needs to open for a user to input their sequence which can be stored in an array.  
+//   
 
 gridBlocksArray.forEach(gridBlock => {
     gridBlock.addEventListener('click', (event) => {
@@ -113,6 +115,23 @@ gridBlocksArray.forEach(gridBlock => {
     })
 });
 
+
+
+function userDelay(block) {
+    block.style.visibility = 'hidden'
+    setTimeout(revertBackground, time)
+}
+
+
+
+function revertBackground() {
+    gridBlocksArray.forEach(gridBlock => {
+        gridBlock.style.visibility = 'visible'
+    })
+}
+
+
+
 //clear the user sequence
 function clearUserSequence() {
     for (let i = 0; i = userSequence.length; i++) {
@@ -120,6 +139,10 @@ function clearUserSequence() {
     }
     console.log(userSequence)
 }
+
+
+/////////////////////////////////////////////
+
 
 // const clearSequenceButton = document.querySelector('#clear-sequence')
 // clearSequenceButton.addEventListener('click', clearUserSequence)

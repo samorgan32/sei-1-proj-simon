@@ -1,5 +1,5 @@
 body {
-    background: beige;
+    background: #f8f5f1;
 }
 
 .grid {
@@ -22,11 +22,11 @@ body {
 
 .grid-block {
     visibility: visible;
-    background: #92d6c3;
     height: 200px;
     width: 200px;
     margin: auto;
     border: outset;
+    border-color: #f8f5f1;
 }
 
 
@@ -39,31 +39,33 @@ display: none;
 }
 
 button {
-    background: #d1a7d1 ;
+    background: #f8f5f1 ;
     color: black;
     border: outset;
+    width: 80px;
+    height:50px;
 }
 
 .gb0{
-background: #70D8E0;
+background: #f8a488;
 }
 
 .gb1{
-    background: #70A0E0;
+    background: #5aa897;
 }
 
 .gb2{
-    background: #7870E0;
+    background: #45526c;
 }
 
 .gb3 {
-    background: #B070E0;
+    background: #ff8882;
 }
 
 .gb4{
-    background: #E070D8;
+    background: #ffc2b4;
 }
 
 .gb5{
-    background: #E070A0;
+    background: #194350;
 }
