@@ -121,23 +121,33 @@ grid-row-end: 2;
 
 .gb8{
     background: #45526c;
-    /* height: 75px;
-    width: 110px; */
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
 
 }
 
 .gb9{
     background: #ff8882;
-    /* height: 50px; */
-    /* width: 300px; */
-   
+    grid-column-start:4;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
 }
 
 .gb10{
     background: #ffc2b4;
-
+    grid-column-start:1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
 }
 
 .gb11{
     background: #194350;
+    grid-column-start:2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
