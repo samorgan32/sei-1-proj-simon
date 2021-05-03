@@ -117,6 +117,14 @@ function userSequenceInitiate() {
     })
 };
 
+function userSequenceRemove() {
+    gridBlocksArray.forEach(gridBlock => {
+        gridBlock.removeEventListener('click', userSequenceInitiate)
+    })
+}
+
+userSequenceInitiate()
+
 
 function userDelay(block) {
     block.style.visibility = 'hidden'
@@ -258,6 +266,27 @@ let blockIndex = 1
 // }
 
 
+// function addBlocks() {
+//     const newBlock = document.createElement('div')
+//     gridDiv.appendChild(newBlock)
+//     newBlock.classList.add('grid-block')
+//     blockIndex++
+//     newBlock.classList.add(`gb${blockIndex}`)
+//     gridBlocksArray.push(newBlock)
+//     gridBlocksArray.forEach(gridBlock => {
+//         gridBlock.removeEventListener('click', userSequenceInitiate)
+//         gridBlock.addEventListener('click', (event) => {
+//             let block = event.target
+//             userDelay(block)
+//             userSequence.push(event.target)
+//             console.log(userSequence)
+//         })
+
+//     });
+
+//     console.log(gridBlocksArray)
+// }
+
 function addBlocks() {
     const newBlock = document.createElement('div')
     gridDiv.appendChild(newBlock)
@@ -265,19 +294,11 @@ function addBlocks() {
     blockIndex++
     newBlock.classList.add(`gb${blockIndex}`)
     gridBlocksArray.push(newBlock)
-    gridBlocksArray.forEach(gridBlock => {
-        gridBlock.removeEventListener('click', userSequenceInitiate)
-        gridBlock.addEventListener('click', (event) => {
-            let block = event.target
-            userDelay(block)
-            userSequence.push(event.target)
-            console.log(userSequence)
-        })
-
-    });
-
+    userSequenceRemove()
+    userSequenceInitiate()
     console.log(gridBlocksArray)
 }
+
 
 addBlockButton.addEventListener('click', (event) => {
     addBlocks()
