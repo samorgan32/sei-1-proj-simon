@@ -9,7 +9,7 @@ const userSequence = []
 
 ///Instructions
 const gameInstructions = document.querySelector('#instructions')
-const instructionsArray = ['Watch the block...', 'Now click the block, then click submit...', 'Very cool, now do it for real...']
+const instructionsArray = ['Watch the block...', 'Now click the block, then click submit...', 'Very cool, now do that a bunch more times...']
 
 ///Time for delayed calls to sequence generation
 let time = 150
@@ -96,8 +96,6 @@ function finalSequenceStart() {
     } else if (sequence.length !== 0) {
         if (generateFlag.length === sequence.length) {
             generateSequence()
-        } else {
-            console.log('user plays first')
         }
     }
 }
@@ -128,6 +126,7 @@ function userSequenceInitiate() {
     })
 };
 
+userSequenceInitiate()
 
 //clears the user sequence array so that the next sequence can be added and compared correctly against the automated sequence. 
 function clearUserSequence() {
@@ -183,8 +182,6 @@ function clearComparisonSequence() {
 //Submit button triggers the compare sequences function and must be clicked after user has completed inputting their sequence for that turn.  
 submitButton.addEventListener('click', compareSequences)
 
-//new game button clears sequence array 
-const newGameButton = document.querySelector('#new-game')
 
 // Clear sequence reloads the page
 function clearSequence() {
@@ -194,15 +191,10 @@ function clearSequence() {
 //triggers page reload which starts a new game, wiping out all arrays and blocks except one.  Automated sequence is set to run on page load as well. 
 newGameButton.addEventListener('click', clearSequence)
 
-//add blocks to the grid.  need to change nodelist to array so they can be used in sequences 
 
-const gridDiv = document.querySelector('.grid')
-const addBlockButton = document.querySelector('#add-block')
-let blockIndex = 0
+////Adding blocks 
 
-
-userSequenceInitiate()
-
+//add blocks to the gridBlocks array with the corresponding classes and event listeners.  This is used when submitting a sequence to add blocks automatically as the user progresses. 
 
 function addBlocks() {
     const newBlock = document.createElement('div')
@@ -215,45 +207,35 @@ function addBlocks() {
         let block = event.target
         userBlockFlash(block)
         userSequence.push(event.target)
-        console.log(userSequence)
-
     })
-    // });
-    console.log(gridBlocksArray)
 }
 
+//triggers the automated sequence to run when the page is loaded.  Triggered when new game is selected.  
+function autoLoadSequence() {
+    document.body.onload = delayedSequenceStart()
+}
+
+autoLoadSequence()
 
 
+
+
+
+
+
+
+
+
+
+
+
+///////////remove once css styling is done
 addBlockButton.addEventListener('click', (event) => {
     addBlocks()
     // addBlocks()
 })
 
-//remove blocks on new game
 
-// function removeBlocks() {
-//     for (let i = 1; i < gridBlocksArray.length; i++) {
-//         gridDiv.removeChild(gridDiv.lastElementChild)
-//     }
-// }
-
-
-function autoLoadSequence() {
-    document.body.onload = delayedSequenceStart()
-}
-
-// const removeButton = document.querySelector('#remove')
-
-// removeButton.addEventListener('click', removeBlocks)
-
-//clear gridblocksarry on new game
-// function clearGridBlocksArray() {
-//     for (let i = 1; i < gridBlocksArray.length; i++) {
-//         gridBlocksArray.pop(gridBlocksArray[i])
-//     }
-// }
-
-autoLoadSequence()
 
 
 /////////////////////////MVP/////////////////////////////
