@@ -58,7 +58,7 @@ function instructions() {
     }
 }
 
-
+////Blocks flash and generate automated sequence
 
 //Makes the block flash by setting the particular div to hidden, before running revertBackground to bring it back to visible. 
 function blockFlash(i) {
@@ -76,7 +76,6 @@ function revertBackground() {
 function generateSequence() {
     let num = Math.floor(Math.random() * gridBlocksArray.length)
     sequence.push(gridBlocksArray[num])
-    console.log(sequence)
     initiateSequence()
     clearUserSequence()
 }
@@ -110,100 +109,36 @@ function delayedSequenceStart() {
 }
 
 
+////Blocks flash on user click and store user sequence
 
+//Makes the block flash by setting the visibility to hidden, then using revertbackground to chnage it back.  
+function userBlockFlash(block) {
+    block.style.visibility = 'hidden'
+    setTimeout(revertBackground, time)
+}
 
-
-
-//each click adds one random '0' or '1' to the array, increasing the array by one
-//assign each a styling to hide or show the block
-//assign each block a set timeout to run on click 
-
-
-
-//Store the user initiated sequence 
-//   
+//Triggers the block flash when a user clicks that block.  Also stores the sequence of blocks clicked in an array to be used to compare against the automated sequence. 
 function userSequenceInitiate() {
     gridBlocksArray.forEach(gridBlock => {
         gridBlock.addEventListener('click', (event) => {
             let block = event.target
             userBlockFlash(block)
             userSequence.push(event.target)
-            console.log(userSequence)
         })
     })
 };
 
 
-function userSequenceRemove() {
-    gridBlocksArray.forEach(gridBlock => {
-        gridBlock.removeEventListener('click', userSequenceInitiate)
-    })
-}
-
-
-function userBlockFlash(block) {
-    block.style.visibility = 'hidden'
-    setTimeout(revertBackground, time)
-}
-
-
-
-
-
-
-//clear the user sequence
+//clears the user sequence array so that the next sequence can be added and compared correctly against the automated sequence. 
 function clearUserSequence() {
     for (let i = 0; i = userSequence.length; i++) {
         userSequence.shift()
     }
-    console.log(userSequence)
 }
 
+////Compare the sequences
 
-
-
-
-// const clearSequenceButton = document.querySelector('#clear-sequence')
-// clearSequenceButton.addEventListener('click', clearUserSequence)
-
-//compare the sequences
-// run generate if correct, clear if incorrect 
-const comparisonSequence = []
-const generateFlag = []
-const resultMessage = document.querySelector('#result')
-const memories = document.querySelector('#memories')
-
-// function compareSequences() {
-//     for (let i = 0; i < sequence.length; i++) {
-//         if (sequence[i] === userSequence[i]) {
-//             comparisonSequence.push(sequence[i])
-//         }
-//     }
-//     if (comparisonSequence.length === sequence.length && sequence.length === userSequence.length) {
-//         resultMessage.innerText = 'result: advance'
-//         score.innerText = 'score: ' + sequence.length
-//         generateFlag.push('generate')
-//         console.log(generateFlag)
-//         delayedSequenceStart()
-//     } else {
-//         resultMessage.innerText = 'result: game over'
-//     }
-//     console.log(comparisonSequence)
-//     setTimeout(clearComparisonSequence, 200)
-//     if (sequence.length === 1) {
-//         setTimeout(addBlocks, 500)
-//         setTimeout(addBlocks, 1000)
-//         setTimeout(addBlocks, 1500)
-//     } else if (sequence.length % 4 === 0 && sequence.length < 37) {
-//         setTimeout(addBlocks, 500)
-//         setTimeout(addBlocks, 1000)
-//         setTimeout(addBlocks, 1500)
-//         setTimeout(addBlocks, 2000)
-
-//     }
-// }
-
-
+//Comparing the automated sequence to the user generated sequence by pushing all of the similar values into a new array., then comparing the length of those three arrays to ensure they are equal.  If equal: advance to the next round, increase the score by one, push generate into the generateflag array, add blocks (based on user progress) , and restart a new automated sequence.  Otherwise: tell the user' game over' and stop acticvity.   
 function compareSequences() {
     for (let i = 0; i < sequence.length; i++) {
         if (sequence[i] === userSequence[i]) {
@@ -214,17 +149,15 @@ function compareSequences() {
         resultMessage.innerText = 'result: advance'
         score.innerText = 'score: ' + sequence.length
         generateFlag.push('generate')
-        console.log(generateFlag)
         autoAddBlocks()
         delayedSequenceStart()
     } else {
         resultMessage.innerText = 'result: game over'
     }
-    console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
 }
 
-
+// adds blocks to div after first sequence, and then every 4 sequences afterwards until 12 blocks in total are available.   
 function autoAddBlocks() {
     if (sequence.length === 1) {
         setTimeout(addBlocks, 500)
@@ -240,18 +173,14 @@ function autoAddBlocks() {
 }
 
 
-
-
-//clear comparisonSequence
+//Clear comparison sequence for the next sequence 
 function clearComparisonSequence() {
     for (let i = 0; i = comparisonSequence.length; i++) {
         comparisonSequence.shift()
     }
-    console.log(comparisonSequence)
 }
-// ///////////////////////////Debug/////////////////////
 
-const submitButton = document.querySelector('#submit')
+//Submit button triggers the compare sequences function and must be clicked after user has completed inputting their sequence for that turn.  
 submitButton.addEventListener('click', compareSequences)
 
 //new game button clears sequence array 
@@ -266,9 +195,7 @@ function clearSequence() {
     score.innerText = 'score:'
     resultMessage.innerText = 'result:'
     removeBlocks()
-    // delayedSequenceStart()
 }
-/////////////////////////////////////////////////////////
 newGameButton.addEventListener('click', clearSequence)
 
 // set limit on clicking generate unless user sequence has started
