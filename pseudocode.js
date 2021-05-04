@@ -102,7 +102,6 @@ function initiateSequence() {
 
 
 
-///////////////////////////////////////////DEBUG/////////////
 
 //Store the user initiated sequence 
 //   
@@ -138,7 +137,6 @@ function revertBackground() {
     })
 }
 
-/////////////////////////////////////////////
 
 //clear the user sequence
 function clearUserSequence() {
@@ -203,7 +201,7 @@ function clearComparisonSequence() {
     }
     console.log(comparisonSequence)
 }
-
+// ///////////////////////////Debug/////////////////////
 
 const submitButton = document.querySelector('#submit')
 submitButton.addEventListener('click', compareSequences)
@@ -219,9 +217,12 @@ function clearSequence() {
     clearGenerateFlag()
     score.innerText = 'score:'
     resultMessage.innerText = 'result:'
+    clearGridBlocksArray()
+    removeBlocks()
+
     delayedSequenceStart()
 }
-
+/////////////////////////////////////////////////////////
 newGameButton.addEventListener('click', clearSequence)
 
 // set limit on clicking generate unless user sequence has started
@@ -285,13 +286,24 @@ addBlockButton.addEventListener('click', (event) => {
     // addBlocks()
 })
 
-//add blocks automatically 
-function increaseBlockCount() {
-    if (sequence.length === '3') {
-        addBlocks()
-        addBlocks()
+//remove blocks on new game
+function removeBlocks() {
+    for (let i = 1; i < gridBlocksArray.length; i++) {
+        gridDiv.removeChild(gridDiv.lastChild)
+        gridBlocksArray.pop(gridBlocksArray[i])
     }
 }
-increaseBlockCount()
 
+
+
+const removeButton = document.querySelector('#remove')
+
+removeButton.addEventListener('click', removeBlocks)
+
+//clear gridblocksarry on new game
+function clearGridBlocksArray() {
+    for (let i = 1; i < gridBlocksArray.length; i++) {
+        gridBlocksArray.pop(gridBlocksArray[i])
+    }
+}
 
