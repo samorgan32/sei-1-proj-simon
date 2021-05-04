@@ -159,6 +159,37 @@ const generateFlag = []
 const resultMessage = document.querySelector('#result')
 const memories = document.querySelector('#memories')
 
+// function compareSequences() {
+//     for (let i = 0; i < sequence.length; i++) {
+//         if (sequence[i] === userSequence[i]) {
+//             comparisonSequence.push(sequence[i])
+//         }
+//     }
+//     if (comparisonSequence.length === sequence.length && sequence.length === userSequence.length) {
+//         resultMessage.innerText = 'result: advance'
+//         score.innerText = 'score: ' + sequence.length
+//         generateFlag.push('generate')
+//         console.log(generateFlag)
+//         delayedSequenceStart()
+//     } else {
+//         resultMessage.innerText = 'result: game over'
+//     }
+//     console.log(comparisonSequence)
+//     setTimeout(clearComparisonSequence, 200)
+//     if (sequence.length === 1) {
+//         setTimeout(addBlocks, 500)
+//         setTimeout(addBlocks, 1000)
+//         setTimeout(addBlocks, 1500)
+//     } else if (sequence.length % 4 === 0 && sequence.length < 37) {
+//         setTimeout(addBlocks, 500)
+//         setTimeout(addBlocks, 1000)
+//         setTimeout(addBlocks, 1500)
+//         setTimeout(addBlocks, 2000)
+
+//     }
+// }
+
+
 function compareSequences() {
     for (let i = 0; i < sequence.length; i++) {
         if (sequence[i] === userSequence[i]) {
@@ -170,13 +201,17 @@ function compareSequences() {
         score.innerText = 'score: ' + sequence.length
         generateFlag.push('generate')
         console.log(generateFlag)
+        autoAddBlocks()
         delayedSequenceStart()
     } else {
         resultMessage.innerText = 'result: game over'
-        // setTimeout(clearSequence, 1000)
     }
     console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
+}
+
+
+function autoAddBlocks() {
     if (sequence.length === 1) {
         setTimeout(addBlocks, 500)
         setTimeout(addBlocks, 1000)
@@ -188,8 +223,8 @@ function compareSequences() {
         setTimeout(addBlocks, 2000)
 
     }
-
 }
+
 
 
 
