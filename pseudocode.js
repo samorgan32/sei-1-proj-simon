@@ -10,7 +10,6 @@ const gridBlocksArray = Array.from(gridBlocks)
 const sequence = []
 const userSequence = []
 
-
 //make the blocks flash 
 
 function delay(i) {
@@ -217,10 +216,8 @@ function clearSequence() {
     clearGenerateFlag()
     score.innerText = 'score:'
     resultMessage.innerText = 'result:'
-    clearGridBlocksArray()
     removeBlocks()
-
-    delayedSequenceStart()
+    // delayedSequenceStart()
 }
 /////////////////////////////////////////////////////////
 newGameButton.addEventListener('click', clearSequence)
@@ -287,22 +284,30 @@ addBlockButton.addEventListener('click', (event) => {
 })
 
 //remove blocks on new game
+// function removeBlocks() {
+//     for (let i = 1; i < gridBlocksArray.length; i++) {
+//         gridDiv.removeChild(gridDiv.lastElementChild)
+//     }
+// }
 function removeBlocks() {
-    for (let i = 1; i < gridBlocksArray.length; i++) {
-        gridDiv.removeChild(gridDiv.lastChild)
-    }
+    location.reload()
 }
 
-
+function autoLoadSequence() {
+    document.body.onload = delayedSequenceStart()
+}
 
 const removeButton = document.querySelector('#remove')
 
 removeButton.addEventListener('click', removeBlocks)
 
 //clear gridblocksarry on new game
-function clearGridBlocksArray() {
-    for (let i = 1; i < gridBlocksArray.length; i++) {
-        gridBlocksArray.pop(gridBlocksArray[i])
-    }
-}
+// function clearGridBlocksArray() {
+//     for (let i = 1; i < gridBlocksArray.length; i++) {
+//         gridBlocksArray.pop(gridBlocksArray[i])
+//     }
+// }
+
+autoLoadSequence()
+
 
