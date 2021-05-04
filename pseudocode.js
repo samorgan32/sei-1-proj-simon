@@ -9,6 +9,31 @@ const gridBlocks = document.querySelectorAll('.grid-block')
 const gridBlocksArray = Array.from(gridBlocks)
 const sequence = []
 const userSequence = []
+const gameInstructions = document.querySelector('#instructions')
+
+//add instructions
+
+const instructionsArray = ['Watch the block...', 'Now click the block, then click submit...', 'Very cool, now do it for real...']
+
+function instructions2() {
+    gameInstructions.innerText = instructionsArray[1]
+}
+
+function instructions3() {
+    gameInstructions.innerText = instructionsArray[2]
+}
+
+function instructions() {
+    for (let i = 0; i < instructionsArray.length; i++) {
+        if (sequence.length === 0) {
+            gameInstructions.innerText = instructionsArray[0]
+            setTimeout(instructions2, 5000)
+        } else if (userSequence.length === 1) {
+            setTimeout(instructions3, 2000)
+        }
+    }
+}
+
 
 //make the blocks flash 
 
@@ -62,6 +87,7 @@ function finalSequenceStart() {
 //delays start of sequence so user sees it 
 function delayedSequenceStart() {
     setTimeout(finalSequenceStart, 4000)
+    instructions()
 }
 // generateButton.addEventListener('click', generateSequence)
 
@@ -319,6 +345,7 @@ addBlockButton.addEventListener('click', (event) => {
 })
 
 //remove blocks on new game
+
 // function removeBlocks() {
 //     for (let i = 1; i < gridBlocksArray.length; i++) {
 //         gridDiv.removeChild(gridDiv.lastElementChild)
@@ -332,9 +359,9 @@ function autoLoadSequence() {
     document.body.onload = delayedSequenceStart()
 }
 
-const removeButton = document.querySelector('#remove')
+// const removeButton = document.querySelector('#remove')
 
-removeButton.addEventListener('click', removeBlocks)
+// removeButton.addEventListener('click', removeBlocks)
 
 //clear gridblocksarry on new game
 // function clearGridBlocksArray() {
@@ -344,5 +371,8 @@ removeButton.addEventListener('click', removeBlocks)
 // }
 
 autoLoadSequence()
+
+
+
 
 
