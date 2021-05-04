@@ -62,7 +62,7 @@ function finalSequenceStart() {
 }
 //delays start of sequence so user sees it 
 function delayedSequenceStart() {
-    setTimeout(finalSequenceStart, 2000)
+    setTimeout(finalSequenceStart, 4000)
 }
 // generateButton.addEventListener('click', generateSequence)
 
@@ -290,7 +290,6 @@ addBlockButton.addEventListener('click', (event) => {
 function removeBlocks() {
     for (let i = 1; i < gridBlocksArray.length; i++) {
         gridDiv.removeChild(gridDiv.lastChild)
-        gridBlocksArray.pop(gridBlocksArray[i])
     }
 }
 
