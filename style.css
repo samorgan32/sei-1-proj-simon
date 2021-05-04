@@ -22,6 +22,10 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    max-width: 500px;
+    max-height: 600px;
+    min-height: 400px;
+    min-width: 400px;
 }
 
 .grid-block {
@@ -30,20 +34,6 @@ body {
     height: -50%;
     border: 2px outset black;
     visibility: visible;
-
-        /* margin: auto;
-    border: outset;
-    display: inline-block;
-    align-self: stretch */
-}
-
-
-#initiate {
-display: none;
-}
-
-#clear-sequence {
-    display: none;
 }
 
 button {
