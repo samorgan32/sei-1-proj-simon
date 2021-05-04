@@ -183,7 +183,7 @@ function clearUserSequence() {
 const comparisonSequence = []
 const generateFlag = []
 const resultMessage = document.querySelector('#result')
-const memories = document.querySelector('#memories')
+const score = document.querySelector('#score')
 
 // function compareSequences() {
 //     for (let i = 0; i < sequence.length; i++) {
