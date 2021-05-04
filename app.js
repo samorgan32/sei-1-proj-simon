@@ -66,6 +66,12 @@ function blockFlash(i) {
     setTimeout(revertBackground, time)
 }
 
+function revertBackground() {
+    gridBlocksArray.forEach(gridBlock => {
+        gridBlock.style.visibility = 'visible'
+    })
+}
+
 //generates the random sequence of flashes by taking random number between 0 and gridBlocksArray.length - 1.  That number assigns a particular gridblock to the sequence array.  Also clears the userSequence that was submitted for  the previous round, so that user reenters new sequence after new automated sequence has run. 
 function generateSequence() {
     let num = Math.floor(Math.random() * gridBlocksArray.length)
@@ -114,22 +120,13 @@ function delayedSequenceStart() {
 
 
 
-// button triggers the sequence 
-// sequenceButton.addEventListener('click', initiateSequence)
-
-
-
-
-
-
-
 //Store the user initiated sequence 
 //   
 function userSequenceInitiate() {
     gridBlocksArray.forEach(gridBlock => {
         gridBlock.addEventListener('click', (event) => {
             let block = event.target
-            userDelay(block)
+            userBlockFlash(block)
             userSequence.push(event.target)
             console.log(userSequence)
         })
@@ -144,18 +141,14 @@ function userSequenceRemove() {
 }
 
 
-function userDelay(block) {
+function userBlockFlash(block) {
     block.style.visibility = 'hidden'
     setTimeout(revertBackground, time)
 }
 
 
 
-function revertBackground() {
-    gridBlocksArray.forEach(gridBlock => {
-        gridBlock.style.visibility = 'visible'
-    })
-}
+
 
 
 //clear the user sequence
@@ -323,7 +316,7 @@ function addBlocks() {
     gridBlocksArray.push(newBlock)
     newBlock.addEventListener('click', (event) => {
         let block = event.target
-        userDelay(block)
+        userBlockFlash(block)
         userSequence.push(event.target)
         console.log(userSequence)
 
@@ -429,7 +422,7 @@ autoLoadSequence()
 //     gridBlocksArray.forEach(gridBlock => {
 //         gridBlock.addEventListener('click', (event) => {
 //             let block = event.target
-//             userDelay(block)
+//             userBlockFlash(block)
 //             userSequence.push(event.target)
 //             console.log(userSequence)
 //         })
@@ -438,7 +431,7 @@ autoLoadSequence()
 
 // userSequenceInitiate()
 
-// function userDelay(block) {
+// function userBlockFlash(block) {
 //     block.style.visibility = 'hidden'
 //     setTimeout(revertBackground, time)
 // }
