@@ -268,17 +268,21 @@ submitButton.addEventListener('click', compareSequences)
 
 //new game button clears sequence array 
 const newGameButton = document.querySelector('#new-game')
-
+/////////////////////////////////storing for later use when not reloading the page to clear
+// function clearSequence() {
+//     for (let i = 0; i = sequence.length; i++) {
+//         sequence.shift()
+//     }
+//     console.log(sequence)
+//     clearGenerateFlag()
+//     score.innerText = 'score:'
+//     resultMessage.innerText = 'result:'
+//     removeBlocks()
+//     // delayedSequenceStart()
+// }
+//////////////////////////////////////////////////////////////////////////
 function clearSequence() {
-    for (let i = 0; i = sequence.length; i++) {
-        sequence.shift()
-    }
-    console.log(sequence)
-    clearGenerateFlag()
-    score.innerText = 'score:'
-    resultMessage.innerText = 'result:'
-    removeBlocks()
-    // delayedSequenceStart()
+    location.reload()
 }
 /////////////////////////////////////////////////////////
 newGameButton.addEventListener('click', clearSequence)

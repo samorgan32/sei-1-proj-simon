@@ -186,43 +186,13 @@ submitButton.addEventListener('click', compareSequences)
 //new game button clears sequence array 
 const newGameButton = document.querySelector('#new-game')
 
+// Clear sequence reloads the page
 function clearSequence() {
-    for (let i = 0; i = sequence.length; i++) {
-        sequence.shift()
-    }
-    console.log(sequence)
-    clearGenerateFlag()
-    score.innerText = 'score:'
-    resultMessage.innerText = 'result:'
-    removeBlocks()
+    location.reload()
 }
+
+//triggers page reload which starts a new game, wiping out all arrays and blocks except one.  Automated sequence is set to run on page load as well. 
 newGameButton.addEventListener('click', clearSequence)
-
-// set limit on clicking generate unless user sequence has started
-// submit button pushes flag into array - done
-//generate needs to clear submit array or use array .length for check
-//if sequence is [] = generate can run
-// if (sequence.length === 0) {
-//     generateSequence()
-// } else if (sequence.length !== 0) {
-//     if (generateFlag.length === sequence.length) {
-//         generateSequence()
-//     } else {
-//         console.log('user plays first')
-//     }
-// }
-//if sequence ![] then check if submit array is [].
-//if submit array is empty, don't run generate.
-//if submit is populated, run generate and clear submitarray. 
-
-//game over needs to clear the submit sequence. Add to clearSequence()
-
-function clearGenerateFlag() {
-    for (let i = 0; i = generateFlag.length; i++) {
-        generateFlag.shift()
-    }
-    console.log(generateFlag)
-}
 
 //add blocks to the grid.  need to change nodelist to array so they can be used in sequences 
 
@@ -266,9 +236,7 @@ addBlockButton.addEventListener('click', (event) => {
 //         gridDiv.removeChild(gridDiv.lastElementChild)
 //     }
 // }
-function removeBlocks() {
-    location.reload()
-}
+
 
 function autoLoadSequence() {
     document.body.onload = delayedSequenceStart()
