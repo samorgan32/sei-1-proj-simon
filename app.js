@@ -66,6 +66,25 @@ function blockFlash(i) {
     setTimeout(revertBackground, time)
 }
 
+//generates the random sequence of flashes by taking random number between 0 and gridBlocksArray.length - 1.  That number assigns a particular gridblock to the sequence array.  Also clears the userSequence that was submitted for  the previous round, so that user reenters new sequence after new automated sequence has run. 
+function generateSequence() {
+    let num = Math.floor(Math.random() * gridBlocksArray.length)
+    sequence.push(gridBlocksArray[num])
+    console.log(sequence)
+    initiateSequence()
+    clearUserSequence()
+}
+
+//Spaces out the blockflashes so they flash in order as opposed to running at the same time. 
+
+function initiateSequence() {
+    for (let i = 0; i < sequence.length; i++) {
+        let newTime = i * 700
+        x = setTimeout(function () { blockFlash(i) }, newTime)
+    }
+}
+
+//begins running the automated sequence based off of the given conditions. The sequence runs at the beginning of the game when no sequence has previsouly been run.  After that, the sequence will run only after the user has submitted their sequence and it has been confirmed to match the automated sequence. 
 function finalSequenceStart() {
     if (sequence.length === 0) {
         generateSequence()
@@ -77,21 +96,14 @@ function finalSequenceStart() {
         }
     }
 }
-//delays start of sequence so user sees it 
+
+//delays start of sequence so user has time to read instructions and see the initial block flash
 function delayedSequenceStart() {
     setTimeout(finalSequenceStart, 4000)
     instructions()
 }
 
-//generates the random sequence of flashes by taking random number between 0 and gridBlocksArray.length - 1.  That number assigns a particular gridblock to the sequence array. 
 
-function generateSequence() {
-    let num = Math.floor(Math.random() * gridBlocksArray.length)
-    sequence.push(gridBlocksArray[num])
-    console.log(sequence)
-    initiateSequence()
-    clearUserSequence()
-}
 
 
 
@@ -106,16 +118,7 @@ function generateSequence() {
 // sequenceButton.addEventListener('click', initiateSequence)
 
 
-//trigger the computer generated sequence 
-let time = 150
-let newTime = 0
 
-function initiateSequence() {
-    for (let i = 0; i < sequence.length; i++) {
-        let newTime = i * 700
-        x = setTimeout(function () { blockFlash(i) }, newTime)
-    }
-}
 
 
 
