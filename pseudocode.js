@@ -10,7 +10,6 @@ const gridBlocksArray = Array.from(gridBlocks)
 const sequence = []
 const userSequence = []
 
-
 //make the blocks flash 
 
 function delay(i) {
@@ -62,7 +61,7 @@ function finalSequenceStart() {
 }
 //delays start of sequence so user sees it 
 function delayedSequenceStart() {
-    setTimeout(finalSequenceStart, 2000)
+    setTimeout(finalSequenceStart, 4000)
 }
 // generateButton.addEventListener('click', generateSequence)
 
@@ -102,7 +101,6 @@ function initiateSequence() {
 
 
 
-///////////////////////////////////////////DEBUG/////////////
 
 //Store the user initiated sequence 
 //   
@@ -117,13 +115,12 @@ function userSequenceInitiate() {
     })
 };
 
+
 function userSequenceRemove() {
     gridBlocksArray.forEach(gridBlock => {
         gridBlock.removeEventListener('click', userSequenceInitiate)
     })
 }
-
-userSequenceInitiate()
 
 
 function userDelay(block) {
@@ -139,7 +136,6 @@ function revertBackground() {
     })
 }
 
-/////////////////////////////////////////////
 
 //clear the user sequence
 function clearUserSequence() {
@@ -163,6 +159,37 @@ const generateFlag = []
 const resultMessage = document.querySelector('#result')
 const memories = document.querySelector('#memories')
 
+// function compareSequences() {
+//     for (let i = 0; i < sequence.length; i++) {
+//         if (sequence[i] === userSequence[i]) {
+//             comparisonSequence.push(sequence[i])
+//         }
+//     }
+//     if (comparisonSequence.length === sequence.length && sequence.length === userSequence.length) {
+//         resultMessage.innerText = 'result: advance'
+//         score.innerText = 'score: ' + sequence.length
+//         generateFlag.push('generate')
+//         console.log(generateFlag)
+//         delayedSequenceStart()
+//     } else {
+//         resultMessage.innerText = 'result: game over'
+//     }
+//     console.log(comparisonSequence)
+//     setTimeout(clearComparisonSequence, 200)
+//     if (sequence.length === 1) {
+//         setTimeout(addBlocks, 500)
+//         setTimeout(addBlocks, 1000)
+//         setTimeout(addBlocks, 1500)
+//     } else if (sequence.length % 4 === 0 && sequence.length < 37) {
+//         setTimeout(addBlocks, 500)
+//         setTimeout(addBlocks, 1000)
+//         setTimeout(addBlocks, 1500)
+//         setTimeout(addBlocks, 2000)
+
+//     }
+// }
+
+
 function compareSequences() {
     for (let i = 0; i < sequence.length; i++) {
         if (sequence[i] === userSequence[i]) {
@@ -174,14 +201,31 @@ function compareSequences() {
         score.innerText = 'score: ' + sequence.length
         generateFlag.push('generate')
         console.log(generateFlag)
+        autoAddBlocks()
         delayedSequenceStart()
     } else {
         resultMessage.innerText = 'result: game over'
-        // setTimeout(clearSequence, 1000)
     }
     console.log(comparisonSequence)
     setTimeout(clearComparisonSequence, 200)
 }
+
+
+function autoAddBlocks() {
+    if (sequence.length === 1) {
+        setTimeout(addBlocks, 500)
+        setTimeout(addBlocks, 1000)
+        setTimeout(addBlocks, 1500)
+    } else if (sequence.length % 4 === 0 && sequence.length < 37) {
+        setTimeout(addBlocks, 500)
+        setTimeout(addBlocks, 1000)
+        setTimeout(addBlocks, 1500)
+        setTimeout(addBlocks, 2000)
+
+    }
+}
+
+
 
 
 //clear comparisonSequence
@@ -191,7 +235,7 @@ function clearComparisonSequence() {
     }
     console.log(comparisonSequence)
 }
-
+// ///////////////////////////Debug/////////////////////
 
 const submitButton = document.querySelector('#submit')
 submitButton.addEventListener('click', compareSequences)
@@ -207,9 +251,10 @@ function clearSequence() {
     clearGenerateFlag()
     score.innerText = 'score:'
     resultMessage.innerText = 'result:'
-    delayedSequenceStart()
+    removeBlocks()
+    // delayedSequenceStart()
 }
-
+/////////////////////////////////////////////////////////
 newGameButton.addEventListener('click', clearSequence)
 
 // set limit on clicking generate unless user sequence has started
@@ -242,50 +287,11 @@ function clearGenerateFlag() {
 
 const gridDiv = document.querySelector('.grid')
 const addBlockButton = document.querySelector('#add-block')
-let blockIndex = 1
-
-// function addBlocks() {
-//     const newBlock = document.createElement('div')
-//     gridDiv.appendChild(newBlock)
-//     newBlock.classList.add('grid-block')
-//     blockIndex++
-//     newBlock.classList.add(`gb${blockIndex}`)
-//     gridBlocksArray.push(newBlock)
-//     gridBlocksArray.forEach(gridBlock => {
-//         gridBlock.removeEventListener('click', userSequenceInitiate)
-//         gridBlock.addEventListener('click', (event) => {
-//             let block = event.target
-//             userDelay(block)
-//             userSequence.push(event.target)
-//             console.log(userSequence)
-//         })
-
-//     });
-
-//     console.log(gridBlocksArray)
-// }
+let blockIndex = 0
 
 
-// function addBlocks() {
-//     const newBlock = document.createElement('div')
-//     gridDiv.appendChild(newBlock)
-//     newBlock.classList.add('grid-block')
-//     blockIndex++
-//     newBlock.classList.add(`gb${blockIndex}`)
-//     gridBlocksArray.push(newBlock)
-//     gridBlocksArray.forEach(gridBlock => {
-//         gridBlock.removeEventListener('click', userSequenceInitiate)
-//         gridBlock.addEventListener('click', (event) => {
-//             let block = event.target
-//             userDelay(block)
-//             userSequence.push(event.target)
-//             console.log(userSequence)
-//         })
+userSequenceInitiate()
 
-//     });
-
-//     console.log(gridBlocksArray)
-// }
 
 function addBlocks() {
     const newBlock = document.createElement('div')
@@ -294,13 +300,49 @@ function addBlocks() {
     blockIndex++
     newBlock.classList.add(`gb${blockIndex}`)
     gridBlocksArray.push(newBlock)
-    userSequenceRemove()
-    userSequenceInitiate()
+    newBlock.addEventListener('click', (event) => {
+        let block = event.target
+        userDelay(block)
+        userSequence.push(event.target)
+        console.log(userSequence)
+
+    })
+    // });
     console.log(gridBlocksArray)
 }
+
 
 
 addBlockButton.addEventListener('click', (event) => {
     addBlocks()
     // addBlocks()
 })
+
+//remove blocks on new game
+// function removeBlocks() {
+//     for (let i = 1; i < gridBlocksArray.length; i++) {
+//         gridDiv.removeChild(gridDiv.lastElementChild)
+//     }
+// }
+function removeBlocks() {
+    location.reload()
+}
+
+function autoLoadSequence() {
+    document.body.onload = delayedSequenceStart()
+}
+
+const removeButton = document.querySelector('#remove')
+
+removeButton.addEventListener('click', removeBlocks)
+
+//clear gridblocksarry on new game
+// function clearGridBlocksArray() {
+//     for (let i = 1; i < gridBlocksArray.length; i++) {
+//         gridBlocksArray.pop(gridBlocksArray[i])
+//     }
+// }
+
+autoLoadSequence()
+
+
