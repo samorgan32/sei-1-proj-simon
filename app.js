@@ -214,7 +214,7 @@ function addBlocks() {
 function autoLoadSequence() {
     document.body.onload = delayedSequenceStart()
 }
-
+/////////////TURN BACK ON/////////
 autoLoadSequence()
 
 
