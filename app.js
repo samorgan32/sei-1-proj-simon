@@ -9,7 +9,7 @@ const userSequence = []
 
 ///Instructions
 const gameInstructions = document.querySelector('#instructions')
-const instructionsArray = ['Watch the block...', 'Now click the block, then click submit...', 'Very cool, now do that a bunch more times...']
+const instructionsArray = ['Watch the block...', 'Now click the block, then click submit...', 'Now do that forever...', '',]
 
 ///Time for delayed calls to sequence generation
 let time = 150
@@ -40,10 +40,18 @@ let blockIndex = 0
 
 function instructions2() {
     gameInstructions.innerText = instructionsArray[1]
+    gameInstructions.style.top = '15%'
+    gameInstructions.style.left = '35%'
 }
 
 function instructions3() {
     gameInstructions.innerText = instructionsArray[2]
+    gameInstructions.style.top = '65%'
+    gameInstructions.style.left = '25%'
+}
+
+function instructions4() {
+    gameInstructions.innerText = ''
 }
 
 //instructions change once user has submitted and the first additional blocks have appeared in order to create a delay between blocks appearing and first block flash
@@ -51,9 +59,11 @@ function instructions() {
     for (let i = 0; i < instructionsArray.length; i++) {
         if (sequence.length === 0) {
             gameInstructions.innerText = instructionsArray[0]
-            setTimeout(instructions2, 5000)
+            setTimeout(instructions2, 5500)
         } else if (userSequence.length === 1) {
-            setTimeout(instructions3, 2000)
+            setTimeout(instructions3, 1800)
+        } else if (sequence.length > 1) {
+            instructions4()
         }
     }
 }
@@ -145,13 +155,15 @@ function compareSequences() {
         }
     }
     if (comparisonSequence.length === sequence.length && sequence.length === userSequence.length) {
-        resultMessage.innerText = 'result: advance'
-        score.innerText = 'score: ' + sequence.length
+        if (sequence.length > 1) {
+            resultMessage.innerText = 'keep it going'
+            score.innerText = 'score: ' + sequence.length
+        }
         generateFlag.push('generate')
         autoAddBlocks()
         delayedSequenceStart()
     } else {
-        resultMessage.innerText = 'result: game over'
+        resultMessage.innerText = 'game over'
     }
     setTimeout(clearComparisonSequence, 200)
 }
@@ -214,183 +226,5 @@ function addBlocks() {
 function autoLoadSequence() {
     document.body.onload = delayedSequenceStart()
 }
-/////////////TURN BACK ON/////////
+
 autoLoadSequence()
-
-
-
-
-
-
-
-
-
-
-
-
-
-///////////remove once css styling is done
-addBlockButton.addEventListener('click', (event) => {
-    addBlocks()
-    // addBlocks()
-})
-
-
-
-
-/////////////////////////MVP/////////////////////////////
-
-// // Make blocks clickable. 
-// const gridBlocks = document.querySelectorAll('.grid-block')
-// const gridBlocksArray = Array.from(gridBlocks)
-// const sequence = []
-// const userSequence = []
-
-// //make the blocks flash 
-
-// function blockFlash(i) {
-//     sequence[i].style.visibility = 'hidden'
-//     setTimeout(revertBackground, time)
-// }
-
-// //make blocks flash
-
-// function finalSequenceStart() {
-//     if (sequence.length === 0) {
-//         generateSequence()
-//     } else if (sequence.length !== 0) {
-//         if (generateFlag.length === sequence.length) {
-//             generateSequence()
-//         } else {
-//             console.log('user plays first')
-//         }
-//     }
-// }
-// //delays start of sequence so user sees it 
-// function delayedSequenceStart() {
-//     setTimeout(finalSequenceStart, 2000)
-// }
-
-// //generates the auto sequence
-
-// function generateSequence() {
-//     let num = Math.floor(Math.random() * gridBlocksArray.length)
-//     sequence.push(gridBlocksArray[num])
-//     console.log(sequence)
-//     initiateSequence()
-//     clearUserSequence()
-// }
-
-
-// //trigger the computer generated sequence 
-// let time = 150
-// let newTime = 0
-
-// function initiateSequence() {
-//     for (let i = 0; i < sequence.length; i++) {
-//         let newTime = i * 700
-//         x = setTimeout(function () { blockFlash(i) }, newTime)
-//     }
-// }
-
-// //Store the user initiated sequence 
-// //   
-// function userSequenceInitiate() {
-//     gridBlocksArray.forEach(gridBlock => {
-//         gridBlock.addEventListener('click', (event) => {
-//             let block = event.target
-//             userBlockFlash(block)
-//             userSequence.push(event.target)
-//             console.log(userSequence)
-//         })
-//     })
-// };
-
-// userSequenceInitiate()
-
-// function userBlockFlash(block) {
-//     block.style.visibility = 'hidden'
-//     setTimeout(revertBackground, time)
-// }
-
-
-// function revertBackground() {
-//     gridBlocksArray.forEach(gridBlock => {
-//         gridBlock.style.visibility = 'visible'
-//     })
-// }
-
-
-// //clear the user sequence
-// function clearUserSequence() {
-//     for (let i = 0; i = userSequence.length; i++) {
-//         userSequence.shift()
-//     }
-//     console.log(userSequence)
-// }
-
-
-// //compare the sequences
-// // run generate if correct, clear if incorrect 
-// const comparisonSequence = []
-// const generateFlag = []
-// const resultMessage = document.querySelector('#result')
-// const memories = document.querySelector('#memories')
-
-// function compareSequences() {
-//     for (let i = 0; i < sequence.length; i++) {
-//         if (sequence[i] === userSequence[i]) {
-//             comparisonSequence.push(sequence[i])
-//         }
-//     }
-//     if (comparisonSequence.length === sequence.length && sequence.length === userSequence.length) {
-//         resultMessage.innerText = 'result: advance'
-//         score.innerText = 'score: ' + sequence.length
-//         generateFlag.push('generate')
-//         console.log(generateFlag)
-//         delayedSequenceStart()
-//     } else {
-//         resultMessage.innerText = 'result: game over'
-//     }
-//     console.log(comparisonSequence)
-//     setTimeout(clearComparisonSequence, 200)
-// }
-
-
-// //clear comparisonSequence
-// function clearComparisonSequence() {
-//     for (let i = 0; i = comparisonSequence.length; i++) {
-//         comparisonSequence.shift()
-//     }
-//     console.log(comparisonSequence)
-// }
-
-
-// const submitButton = document.querySelector('#submit')
-// submitButton.addEventListener('click', compareSequences)
-
-// //new game button clears sequence array 
-// const newGameButton = document.querySelector('#new-game')
-
-// function clearSequence() {
-//     for (let i = 0; i = sequence.length; i++) {
-//         sequence.shift()
-//     }
-//     console.log(sequence)
-//     clearGenerateFlag()
-//     score.innerText = 'score:'
-//     resultMessage.innerText = 'result:'
-//     delayedSequenceStart()
-// }
-
-// newGameButton.addEventListener('click', clearSequence)
-
-
-// //game over needs to clear the submit sequence. Add to clearSequence()
-
-// function clearGenerateFlag() {
-//     for (let i = 0; i = generateFlag.length; i++) {
-//         generateFlag.shift()
-//     }
-//     console.log(generateFlag)
-// }
