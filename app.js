@@ -9,7 +9,7 @@ const userSequence = []
 
 ///Instructions
 const gameInstructions = document.querySelector('#instructions')
-const instructionsArray = ['Watch the block...', 'Now click the block, then click submit...', 'Very cool, now do that a bunch more times...']
+const instructionsArray = ['Watch the block...', 'Now click the block, then click submit...', 'Very cool! Now do that infinity more times...', '',]
 
 ///Time for delayed calls to sequence generation
 let time = 150
@@ -40,10 +40,20 @@ let blockIndex = 0
 
 function instructions2() {
     gameInstructions.innerText = instructionsArray[1]
+    gameInstructions.style.color = '#fe6d73'
+    gameInstructions.style.top = '15%'
+    gameInstructions.style.left = '50%'
 }
 
 function instructions3() {
     gameInstructions.innerText = instructionsArray[2]
+    gameInstructions.style.color = '#17c3b2'
+    gameInstructions.style.top = '75%'
+    gameInstructions.style.left = '75%'
+}
+
+function instructions4() {
+    gameInstructions.innerText = ''
 }
 
 //instructions change once user has submitted and the first additional blocks have appeared in order to create a delay between blocks appearing and first block flash
@@ -53,7 +63,9 @@ function instructions() {
             gameInstructions.innerText = instructionsArray[0]
             setTimeout(instructions2, 5000)
         } else if (userSequence.length === 1) {
-            setTimeout(instructions3, 2000)
+            setTimeout(instructions3, 1800)
+        } else if (sequence.length > 1) {
+            instructions4()
         }
     }
 }

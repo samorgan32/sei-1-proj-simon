@@ -45,6 +45,23 @@ button {
     font-family: 'Bitter', serif;
 }
 
+#instructions {
+    color:#227c9d;
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 200%;
+}
+
+#result{
+color: black;
+}
+
+#score{
+color:black;
+}
 
 .gb0{
 background: #227c9d;
