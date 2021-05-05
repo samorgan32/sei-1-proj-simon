@@ -102,13 +102,12 @@ button {
     grid-row-start: 5;
     grid-row-end: 6;
 }
-
 .gb4 {
     background: #17c3b2;
-    grid-column-start:1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 1;
+    grid-column-start:2;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 6;
 }
 
 .gb5 {
@@ -120,11 +119,11 @@ button {
 }
 
 .gb6 {
-    background: #17c3b2;
-    grid-column-start:2;
-    grid-column-end: 2;
+    background: #fe6d73;
+    grid-column-start: 1;
+    grid-column-end: 1;
     grid-row-start: 4;
-    grid-row-end: 6;
+    grid-row-end: 4;
 }
 
 .gb7 {
@@ -153,11 +152,11 @@ button {
 }
 
 .gb10 {
-    background: #fe6d73;
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 4;
-    grid-row-end: 4;
+    background: #17c3b2;
+    grid-column-start:1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
 }
 
 .gb11 {
