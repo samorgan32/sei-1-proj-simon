@@ -12,7 +12,7 @@ h1 {
 .grid {
     display: grid;
     grid-template-columns: 1fr .5fr 1.2fr .75fr;
-    grid-template-rows: 1fr .75fr .5fr 1fr .75fr .5fr;    
+    grid-template-rows: .9fr .75fr .5fr 1fr .75fr;    
     box-sizing:border-box;
     width: 50%;
     height: 50%;
@@ -73,7 +73,7 @@ button {
 .gb0 {
     background: #227c9d;
     grid-column-start:3;
-    grid-column-end: 3;
+    grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 5;
 }
@@ -88,15 +88,17 @@ button {
 
 
 .gb2 {
-    background: #fe6d73;
+    background: #ffcb77;
     grid-column-start:2;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 4;
 }
 
+
 .gb3 {
-    background: #ffcb77;
+    background: #fe6d73;
+    
     grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 5;
@@ -106,7 +108,7 @@ button {
 .gb4 {
     background: #17c3b2;
     grid-column-start:1;
-    grid-column-end: 3;
+    grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 1;
 }
@@ -114,7 +116,7 @@ button {
 .gb5 {
     background: #227c9d;
     grid-column-start:1;
-    grid-column-end: 1;
+    grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3;
 }
@@ -128,15 +130,15 @@ button {
 }
 
 .gb7 {
-    background: #ffcb77;
-    grid-column-start:3;
+    background: #fe6d73;
+    grid-column-start:2;
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
 }
 
 .gb8 {
-    background: #ffcb77;
+    background: #fe6d73;
     grid-column-start:1;
     grid-column-end: 1;
     grid-row-start: 3;
@@ -153,7 +155,8 @@ button {
 }
 
 .gb10 {
-    background: #fe6d73;
+    background: #ffcb77;
+    
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 4;
@@ -161,7 +164,8 @@ button {
 }
 
 .gb11 {
-    background: #fe6d73;
+    background: #ffcb77;
+    
     grid-column-start:4;
     grid-column-end: 5;
     grid-row-start: 3;

@@ -228,3 +228,6 @@ function autoLoadSequence() {
 }
 
 autoLoadSequence()
+/////////for CSS styling////////
+const addButton = document.querySelector('#add')
+addButton.addEventListener('click', addBlocks)
