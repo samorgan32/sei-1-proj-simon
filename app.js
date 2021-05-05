@@ -157,13 +157,13 @@ function compareSequences() {
         }
     }
     if (comparisonSequence.length === sequence.length && sequence.length === userSequence.length) {
-        resultMessage.innerText = 'result: advance'
+        resultMessage.innerText = 'keep going'
         score.innerText = 'score: ' + sequence.length
         generateFlag.push('generate')
         autoAddBlocks()
         delayedSequenceStart()
     } else {
-        resultMessage.innerText = 'result: game over'
+        resultMessage.innerText = 'game over'
     }
     setTimeout(clearComparisonSequence, 200)
 }

@@ -3,6 +3,11 @@ body {
     font-family: 'Bitter', serif;
 }
 
+h1{
+    display: inline;
+    text-decoration: underline;
+}
+
 .grid {
     display: grid;
     grid-template-columns: 1fr .5fr 1.2fr .75fr;
@@ -21,7 +26,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -35%);
     max-width: 500px;
     max-height: 600px;
     min-height: 200px;
@@ -37,13 +42,16 @@ body {
 }
 
 button {
+    display: block;
     background: #fef9ef ;
     color: black;
     border: outset;
-    width: 80px;
+    border-color: beige;
     height: 60px;
+    width: 80px;
     font-family: 'Bitter', serif;
     margin-bottom: 30px;
+    margin-top: 30px;
 
 }
 
@@ -56,19 +64,19 @@ button {
     position: absolute;
     left: 20%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -10%);
 padding-top: 30px;
-    font-size: 150%;
+    font-size: 130%;
 }
 
 #result{
 color: black;
-font-size: 150%;
+font-size: 130%;
 }
 
 #score{
 color:black;
-font-size: 150%;
+font-size: 130%;
 }
 
 .gb0{
@@ -126,13 +134,15 @@ grid-row-end: 5;
     grid-row-end: 4;
 }
 
+
+
 .gb6{
-    background: #227c9d;
-    grid-column-start:1;
+    background: #17c3b2;
+    grid-column-start:2;
     grid-column-end: 2;
-    grid-row-start: 5;
+    grid-row-start: 4;
     grid-row-end: 6;
-    
+
 }
 
 .gb7{
@@ -175,26 +185,32 @@ grid-row-end: 5;
 }
 
 .gb11{
-    background: #17c3b2;
-    grid-column-start:2;
+    background: #227c9d;
+    grid-column-start:1;
     grid-column-end: 2;
-    grid-row-start: 4;
+    grid-row-start: 5;
     grid-row-end: 6;
-
+    
 }
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
+    h1{
+        font-size: 90%;
+    }
     .text{
         font-size: 50%;
         
     }
     button {
 height: 40px;
-width: 50px;
+width: 60px;
 font-size: 10px;
+display: block;
     }
     #instructions{
         left: 10%;
         padding-top: 30px;
     }
 }
+
+
