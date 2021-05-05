@@ -41,12 +41,12 @@ let blockIndex = 0
 function instructions2() {
     gameInstructions.innerText = instructionsArray[1]
     gameInstructions.style.top = '15%'
-    gameInstructions.style.left = '35%'
+    gameInstructions.style.left = '15%'
 }
 
 function instructions3() {
     gameInstructions.innerText = instructionsArray[2]
-    gameInstructions.style.top = '65%'
+    gameInstructions.style.top = '55%'
     gameInstructions.style.left = '25%'
 }
 
